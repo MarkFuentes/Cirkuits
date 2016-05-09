@@ -3,7 +3,18 @@ include_once("util/utilities.php");
 session_start();
 if(isset($_SESSION["user"]))
 {
-
+  if(isset($_SESSION["estatus"]))
+  {
+    if($_SESSION["estatus"] == 1)
+    {
+      header("Location:payment.php");
+    }
+    else if($_SESSION["estatus"] == 2){
+    }
+    else {
+      header("location:login.php");
+    }
+  }
 }else {
   header("Location:login.php");
 }
@@ -37,15 +48,21 @@ if(isset($_SESSION["user"]))
       </div>
     </nav>
     <div class="" id="userSession">
-      <label for=""><h3><span>Welcome:</span>
-      <span id="userName"></span></h3></label>
+      <label for="">
+        <h3>
+          <?php echo '<a href="infouser.php?user='.$_SESSION["user"].'">'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
+          <?php echo '<a href="infouser.php?user='.$_SESSION["user"].'" class="label label-primary">'; ?><span id="userName"><?php  echo $_SESSION["user"] ?></span></a>
+        </h3>
+    </label>
     </div>
     <br>
     <div class="contenidoSubscription">
       <div class="col-md-2"></div>
       <div class="col-md-8 text-center" id="subscriptionContent">
         <div id="endDate">
-
+          <p style="padding-top:30px">
+            Su subscripción se renovará automáticamente <strong>16.05.16.</strong> Se le cargará dinero MXN <strong>99.00cf</strong>
+          </p>
         </div>
         <br>
         <br>

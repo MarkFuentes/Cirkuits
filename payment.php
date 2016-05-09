@@ -29,6 +29,17 @@ if(isset($_SESSION["user"]))
 
     write_console($strServerMsg);
 
+    if(check_card_number($cardNumber) <= 0)
+    {
+      insert_tarjeta($name, $lstName, $cardNumber, $cardMonth, $cardYear, $cvc);
+      echo '<script>alert("Tarjeta registrada con exito");</script>';
+      session_start();
+      $_SESSION["active_card"] = 1;
+    }
+    else {
+      echo '<script>alert("Ya hay una tarjeta registrada con ese numero")</script>';
+    }
+
   }
 }
 else {
@@ -51,21 +62,10 @@ else {
   <script src="js/jquery.validationEngine.js"></script>
   <script src="js/regpayment.js"></script>
   <script>
-    $(document).ready(
-      function()
-      {
-        $('#regpayment_form').validationEngine();
-      },
-      $.ajax({
-          url:"getUserSession.php",
-          type:"post",
-          success:function(response)
-          {
-            $('#userName').html(response)
-          }
-      }));
-    function logOut() {
-      alert("Saliendo...");
+  $(document).ready( function(){ $('#regpayment_form').validationEngine(); } );
+    function salir()
+    {
+      window.location.href = "dashboard.php";
     }
   </script>
 </head>
@@ -88,8 +88,12 @@ else {
       </div>
     </nav>
     <div class="" id="userSession">
-      <label for=""><h3><span>Welcome:</span>
-      <span id="userName"></span></h3></label>
+      <label for="">
+        <h3>
+          <?php echo '<a href="infouser.php?user='.$_SESSION["user"].'">'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
+          <?php echo '<a href="infouser.php?user='.$_SESSION["user"].'" class="label label-primary">'; ?><span id="userName"><?php  echo $_SESSION["user"] ?></span></a>
+        </h3>
+    </label>
     </div>
     <br>
     <div class="contenidoPayment">
@@ -138,7 +142,7 @@ else {
           </div>
           <div class="btn-group btn-group-lg" role="group">
             <input type="submit" class="btn btn-success" value="Add" />
-            <button type="button" class="btn btn-success" onclick="cancelar()">Back</button>
+            <input type="button" class="btn btn-success" onclick="salir()" value="Back" />
           </div>
           <br>
         </form>

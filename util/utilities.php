@@ -28,4 +28,26 @@
 
     return $result;
   }
+
+  function check_card_number($cardNumber)
+  {
+    $strQuery = "SELECT nombre_tarjeta FROM payment WHERE numero_tarjeta='".$cardNumber."'";
+    $result = mysqli_query($GLOBALS["conn"], $strQuery);
+    return mysqli_num_rows($result);
+  }
+
+  function insert_tarjeta($name, $lstName, $cardNumber, $cardMonth, $cardYear, $cvc, $userId )
+  {
+    $strQuery = " INSERT INTO payment ";
+    $strQuery .= " (  nombre_tarjeta, ap_tarjeta, numero_tarjeta,  	mes_tarjeta, ";
+    $strQuery .= " anio_tarjeta, cvc_tarjeta )";
+    $strQuery .= " VALUES ('".$name."','".$lstName."',".$cardNumber.",'".$cardMonth."','".$cardYear."','".$cvc."')";
+
+    $strQuery2 = "UPDATE usuarios SET estatus_usuario=2 WHERE id_usuario='".$userId."'";
+    //echo $strQuery;
+
+    $result = mysqli_query($GLOBALS["conn"], $strQuery);
+
+    return $result;
+  }
  ?>
