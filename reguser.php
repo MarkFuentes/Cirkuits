@@ -1,6 +1,5 @@
 <?php
   include_once("util/utilities.php");
-
   $strServerMsg = "";
   if(isset($_POST["name"]))
   {
@@ -30,8 +29,10 @@
       $result = insert_user($name, $lstName, $userName, $password, $email, $birthDate, 1);
       if($result > 0)
       {
-        echo '<script>alert("Gracias por registrarte")</script>';
-        header("Location:dashboard.php");
+        session_start();
+        $_SESSION["user"] = $name;
+        echo '<script>alert("Gracias por registrarte");</script>';
+        header("Location:payment.php");
       }
     }
     else {
@@ -85,7 +86,7 @@
           <!--<label>User name</label>-->
           <input type="text" class="form-control" name="userName" id="userName" data-validation-engine="validate[required], custom[onlyLetterNumber]"
           data-errormessage-value-missing="User name is required"
-          data-errormessage-custom-error="Invalid, let me give you a hint: a_garfiel"
+          data-errormessage-custom-error="Invalid, let me give you a hint: Awwwgarfiel"
           placeholder="User name" />
         </div>
         <div class="form form-group">

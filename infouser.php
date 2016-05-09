@@ -1,3 +1,14 @@
+<?php
+include_once("util/utilities.php");
+session_start();
+if(isset($_SESSION["user"]))
+{
+
+}else {
+  header("Location:login.php");
+}
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +23,15 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="dashboard.html" class="navbar-brand">
+          <a href="dashboard.php" class="navbar-brand">
             <img src="img/logo2.png" alt="Cikuits Logo" />
           </a>
         </div>
         <div class="navbar-right">
           <ul class="nav navbar-nav ">
-            <li><a href="subscription.html">Subscription</a></li>
-            <li><a href="payment.html">Payment</a></li>
-            <li><a href="javascript:logOut()"><span class="label label-danger">Exit</span></a></li>
+            <li><a href="infosubscription.php">Subscription</a></li>
+            <li><a href="payment.php">Payment</a></li>
+            <li><a href="exit.php"><span class="label label-danger">Exit</span></a></li>
           </ul>
         </div>
       </div>

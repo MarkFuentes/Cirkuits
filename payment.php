@@ -1,31 +1,38 @@
 <?php
-require_once("util/DAO.php");
 include_once("util/utilities.php");
+session_start();
 $strServerMsg = "";
-if(isset($_POST["name"]))
+
+if(isset($_SESSION["user"]))
 {
-  $name       = strip_tags(filter_var($_POST["name"], FILTER_SANITIZE_STRING));
-  $lstName    = strip_tags(filter_var($_POST["lastName"], FILTER_SANITIZE_STRING));
-  $cardNumber = strip_tags(filter_var($_POST["cardNumber"], FILTER_SANITIZE_STRING));
-  $cardMonth  = strip_tags(filter_var($_POST["cardValidMonth"], FILTER_SANITIZE_NUMBER_INT));
-  $cardYear   = strip_tags(filter_var($_POST["cardValidYear"], FILTER_SANITIZE_NUMBER_INT));
-  $cvc        = strip_tags(filter_var($_POST["cvc"], FILTER_SANITIZE_NUMBER_INT));
+  if(isset($_POST["name"]))
+  {
+    $name       = strip_tags(filter_var($_POST["name"], FILTER_SANITIZE_STRING));
+    $lstName    = strip_tags(filter_var($_POST["lastName"], FILTER_SANITIZE_STRING));
+    $cardNumber = strip_tags(filter_var($_POST["cardNumber"], FILTER_SANITIZE_STRING));
+    $cardMonth  = strip_tags(filter_var($_POST["cardValidMonth"], FILTER_SANITIZE_NUMBER_INT));
+    $cardYear   = strip_tags(filter_var($_POST["cardValidYear"], FILTER_SANITIZE_NUMBER_INT));
+    $cvc        = strip_tags(filter_var($_POST["cvc"], FILTER_SANITIZE_NUMBER_INT));
 
-  $strServerMsg .= $name;
-  $strServerMsg .= "|";
-  $strServerMsg .= $lstName;
-  $strServerMsg .= "|";
-  $strServerMsg .= $cardNumber;
-  $strServerMsg .= "|";
-  $strServerMsg .= $cardMonth;
-  $strServerMsg .= "|";
-  $strServerMsg .= $cardYear;
-  $strServerMsg .= "|";
-  $strServerMsg .= $cvc;
-  $strServerMsg .= "|";
+    $strServerMsg .= $name;
+    $strServerMsg .= "|";
+    $strServerMsg .= $lstName;
+    $strServerMsg .= "|";
+    $strServerMsg .= $cardNumber;
+    $strServerMsg .= "|";
+    $strServerMsg .= $cardMonth;
+    $strServerMsg .= "|";
+    $strServerMsg .= $cardYear;
+    $strServerMsg .= "|";
+    $strServerMsg .= $cvc;
+    $strServerMsg .= "|";
 
-  write_console($strServerMsg);
+    write_console($strServerMsg);
 
+  }
+}
+else {
+  header("Location:login.php");
 }
 
  ?>
@@ -67,15 +74,15 @@ if(isset($_POST["name"]))
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="dashboard.html" class="navbar-brand">
+          <a href="dashboard.php" class="navbar-brand">
             <img src="img/logo2.png" alt="Cikuits Logo" />
           </a>
         </div>
         <div class="navbar-right">
           <ul class="nav navbar-nav ">
-            <li><a href="subscription.html">Subscription</a></li>
-            <li><a href="payment.html">Payment</a></li>
-            <li><a href="javascript:logOut()"><span class="label label-danger">Exit</span></a></li>
+            <li><a href="infosubscription.php">Subscription</a></li>
+            <li><a href="payment.php">Payment</a></li>
+            <li><a href="exit.php"><span class="label label-danger">Exit</span></a></li>
           </ul>
         </div>
       </div>

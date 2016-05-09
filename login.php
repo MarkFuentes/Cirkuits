@@ -1,5 +1,4 @@
 <?php
-require_once("util/DAO.php");
 include_once("util/utilities.php");
 if(isset($_SESSION["user_session"]))
 {
@@ -16,6 +15,23 @@ else {
     $strServerMsg .= "|";
     $strServerMsg .= $password;
     $strServerMsg .= "|";
+
+    $strQuery = "SELECT nombre_usuario FROM usuarios WHERE email_usuario = '".$email."'";
+    echo $strQuery;
+    $result = mysqli_query($GLOBALS["conn"], $strQuery);
+
+    if(mysqli_num_rows($result) > 0)
+    {
+      $strQuery = "SELECT nombre_usuario FROM usuarios WHERE password = '".$password."'";
+      $result = mysqli_query($GLOBALS["conn"], $strQuery);
+      if(mysqli_num_rows($result) > 0)
+      {
+        $row = mysqli_fetch_assoc($result);
+        session_start();
+        $_SESSION["user"] = $row["nombre_usuario"];
+        header("Location:dashboard.php");
+      }
+    }
 
     write_console($strServerMsg);
   }
@@ -48,7 +64,7 @@ else {
        <div class="col-md-4"></div>
        <form class="col-md-4" action="login.php" method="post" id="login_form">
          <div class="form form-group">
-           <input type="text" class="form-control" name="email" id="email"
+           <input type="email" class="form-control" name="email" id="email"
            data-validation-engine="validate[required, custom[email]]"
            data-errormessage-value-missing="email is required"
            data-errormessage-custom-error="Invalid, let me give you a hint: someone@nowhere.com"
