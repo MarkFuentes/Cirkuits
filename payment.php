@@ -65,9 +65,32 @@
  </head>
  <body>
    <div class="container container-fluid">
+     <nav class="navbar navbar-default">
+       <div class="container-fluid">
+         <div class="navbar-header">
+           <a href="dashboard.php" class="navbar-brand">
+             <img src="img/logo2.png" alt="Cikuits Logo" />
+           </a>
+         </div>
+         <div class="navbar-right">
+           <ul class="nav navbar-nav ">
+             <li><a href="infosubscription.php">Subscription</a></li>
+             <li><a href="payment.php">Payment</a></li>
+             <li><a href="exit.php"><span class="label label-danger">Exit</span></a></li>
+           </ul>
+         </div>
+       </div>
+     </nav>
+     <div class="" id="userSession">
+       <label for="">
+         <h3>
+           <?php echo '<a href="infouser.php?user='.$_SESSION["user"]["nombre_usuario"].'" >'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
+           <?php echo '<a href="infouser.php?user='.$_SESSION["user"]["nombre_usuario"].'" class="label label-primary">'; ?><span id="userName"><?php echo $_SESSION["user"]["nombre_usuario"] ?></span></a>
+         </h3>
+       </label>
+     </div>
      <div class="header text-center">
-       <h1>Payment</h1>
-       <hr>
+       <h3>Payment</h3>
      </div>
      <div class="form row">
        <div class="col-md-4">

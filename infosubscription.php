@@ -3,13 +3,13 @@ include_once("util/utilities.php");
 session_start();
 if(isset($_SESSION["user"]))
 {
-  if(isset($_SESSION["estatus"]))
+  if(isset($_SESSION["user"]["estatus_usuario"]))
   {
-    if($_SESSION["estatus"] == 1)
+    if($_SESSION["user"]["estatus_usuario"] == 1)
     {
       header("Location:payment.php");
     }
-    else if($_SESSION["estatus"] == 2){
+    else if($_SESSION["user"]["estatus_usuario"] == 2){
     }
     else {
       header("location:login.php");
@@ -50,8 +50,8 @@ if(isset($_SESSION["user"]))
     <div class="" id="userSession">
       <label for="">
         <h3>
-          <?php echo '<a href="infouser.php?user='.$_SESSION["user"].'">'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
-          <?php echo '<a href="infouser.php?user='.$_SESSION["user"].'" class="label label-primary">'; ?><span id="userName"><?php  echo $_SESSION["user"] ?></span></a>
+          <?php echo '<a href="infouser.php?user='.$_SESSION["user"]["nombre_usuario"].'">'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
+          <?php echo '<a href="infouser.php?user='.$_SESSION["user"]["nombre_usuario"].'" class="label label-primary">'; ?><span id="userName"><?php  echo $_SESSION["user"]["nombre_usuario"] ?></span></a>
         </h3>
     </label>
     </div>

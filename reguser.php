@@ -27,10 +27,14 @@
     if(check_user($userName) <= 0)
     {
       $result = insert_user($name, $lstName, $userName, $password, $email, $birthDate, 1);
+      $id_usuario = mysqli_insert_id($conn);
       if($result > 0)
       {
         session_start();
-        $_SESSION["user"] = $name;
+        $str_query = "SELECT * FROM usuarios where id_usuario = ".$id_usuario;
+        $select_user = mysqli_query($conn, $str_query);
+        $row = mysqli_fetch_assoc($select_user);
+        $_SESSION["user"] = $row;
         echo '<script>alert("Gracias por registrarte");</script>';
         header("Location:payment.php");
       }

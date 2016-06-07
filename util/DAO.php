@@ -1,6 +1,6 @@
 <?php
 
-  $dbHost = "192.168.1.80";
+  $dbHost = "192.168.1.65";
   $dbUser = "Mark";
   $dbPass = "des2tramp2dos2";
   $dbName = "cirkuits";

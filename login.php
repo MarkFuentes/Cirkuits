@@ -17,20 +17,18 @@ else {
     $strServerMsg .= "|";
 
     $strQuery = "SELECT nombre_usuario FROM usuarios WHERE email_usuario = '".$email."'";
-    $result   = mysqli_query($GLOBALS["conn"], $strQuery);
+    $result   = mysqli_query($GLOBALS["conn"], $strQuery) or die(mysqli_error($GLOBALS["conn"]));
 
     if(mysqli_num_rows($result) > 0)
     {
       $strQuery = "SELECT * FROM usuarios WHERE password = '".$password."'";
       $strQuery .= " and email_usuario ='".$email."'";
-      $result = mysqli_query($GLOBALS["conn"], $strQuery);
+      $result = mysqli_query($GLOBALS["conn"], $strQuery) or die(mysqli_error($GLOBALS["conn"]));
       if(mysqli_num_rows($result) > 0)
       {
         $row = mysqli_fetch_assoc($result);
         session_start();
-        $_SESSION["user"]       = $row["nombre_usuario"];
-        $_SESSION["id_usuario"] = $row["id_usuario"];
-        $_SESSION["estatus"]    = $row["estatus_usuario"];
+        $_SESSION["user"]       = $row;
         header("Location:dashboard.php");
       }
     }

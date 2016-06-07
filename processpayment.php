@@ -1,4 +1,6 @@
 <?php
+require_once("util/DAO.php");
+session_start();
 require_once("conekta-php/conekta-php/lib/Conekta.php");
 Conekta::setApiKey("key_CXCwvWvrrSbdLEn5Pwzjyg");
 
@@ -45,4 +47,17 @@ $charge = Conekta_Charge::create(array(
   )
   )
 ));
+
+  if($charge->status == "paid")
+  {
+    $str_reg_card = "UPDATE usuarios SET estatus_usuario = 2 where id_usuario = ".$_SESSION["user"]["id_usuario"];
+    //echo $str_reg_card;
+    mysqli_query($conn, $str_reg_card);
+    $str_get_info = "SELECT * FROM usuarios WHERE id_usuario = ".$_SESSION["user"]["id_usuario"];
+    //echo $str_get_info;
+    $result = mysqli_query($conn, $str_get_info);
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION["user"] = $row;
+    header("Location:dashboard.php");
+  }
  ?>
