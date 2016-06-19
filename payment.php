@@ -38,7 +38,7 @@
          var $form = $(this);
 
          // Previene hacer submit más de una vez
-         $form.find("button").prop("disabled", true);
+         $form.find("button").prop("disabled", false);
          Conekta.token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
 
      // Previene que la información de la forma sea enviada al servidor
