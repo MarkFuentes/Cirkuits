@@ -125,9 +125,28 @@ if(isset($_SESSION["user_session"]))
           </div>
       </div>
     </div>
+    <div class="row row-price">
+      <div class="text-center">
+        <h3><strong>Pricing</strong></h3>
+      </div>
+      <div class="price-tag">
+        <span><h3>Annual Billing</h3></span>
+        <hr>
+        <span><strong>$1000.00 MXN</strong></span>
+        <hr>
+        <a href="#" class="buy-btn label label-success">Buy</a>
+      </div>
+      <div class="price-tag">
+        <span><h3>Monthly Billing</h3></span>
+        <hr>
+        <span><strong>$99.00 MXN</strong></span>
+        <hr>
+        <a href="#" class="buy-btn label label-success">Buy</a>
+      </div>
+    </div>
     <div class="row">
       <!-- Footer -->
-      <footer class="footer col-md-12">
+      <footer class="footer col-md-12" style="position:relative">
         <div class="row">
           <div class="foot-section col-md-4" id="contacto">
             <span>+52 777 123 45 67</span>
