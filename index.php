@@ -33,10 +33,10 @@ if(isset($_SESSION["user_session"]))
       </div>
       <div class="collapse navbar-collapse" id="cirkuitsNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><strong>Home</strong></a></li>
-          <li><a href="#"><strong>Cirkuits</strong></a></li>
-          <li><a href="#"><strong>Video Games</strong></a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> <strong>Sing Up</strong></a></li>
+          <li><a href="index.php"><strong>Home</strong></a></li>
+          <li><a href="cirkuits.php"><strong>Cirkuits</strong></a></li>
+          <li><a href="videojuegos.php"><strong>Video Games</strong></a></li>
+          <li><a href="reguser.php"><span class="glyphicon glyphicon-user"></span> <strong>Sing Up</strong></a></li>
           <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> <strong>Login</strong></a></li>
         </ul>
       </div>

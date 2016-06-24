@@ -111,6 +111,7 @@ body
 }
 .footer
 {
+  position: relative;
   margin-top: 60px;
   width: 100%;
   height: 20%;
@@ -147,7 +148,15 @@ body
   padding: 100px;
   margin-top: 70px;
   text-align: center;
-  background-color: #FF5252;
+  /*background-color: #FF5252;*/
+}
+#banner-videogames
+{
+  background-color: #009688;
+}
+#banner-cirkuits
+{
+  background-color: #FFC400;
 }
 .center
 {
@@ -160,6 +169,42 @@ body
 }
 .text-about > p
 {
+  text-align: justify;
+}
+
+.row-thumb
+{
+  position: relative;
+  margin: 5% 0% 0% 0%;
+  padding: 0px;
+  width: 100%;
+  display: inline-block;
+}
+
+.thumb-wrapper
+{
+  position: relative;
+  width: 30%;
+  margin: 20px;
+  padding: 1%;
+  float: left;
+  border: 1px solid #EEEEEE;
+  border-radius: 5px;
+}
+
+.thumb-nail
+{
+  position: relative;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+.txt-wrapper
+{
+  position: relative;
+  margin: 0px;
+  padding: 1%;
   text-align: justify;
 }
 @media screen and (min-width: 360px) and (max-width: 992px)
