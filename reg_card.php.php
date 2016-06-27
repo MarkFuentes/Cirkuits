@@ -167,8 +167,8 @@ else {
     <div class="" id="userSession">
       <label for="">
         <h3>
-          <?php echo '<a href="infouser.php?user='.$_SESSION["user"].'">'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
-          <?php echo '<a href="infouser.php?user='.$_SESSION["user"].'" class="label label-primary">'; ?><span id="userName"><?php  echo $_SESSION["user"] ?></span></a>
+          <?php echo '<a href="infouser.php?user='.base64_encode($_SESSION["user"]["nombre_usuario"]).'">'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
+          <?php echo '<a href="infouser.php?user='.base64_encode($_SESSION["user"]["nombre_usuario"]).'" class="label label-primary">'; ?><span id="userName"><?php  echo $_SESSION["user"] ?></span></a>
         </h3>
     </label>
     </div>

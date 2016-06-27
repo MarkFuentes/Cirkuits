@@ -52,10 +52,10 @@ $charge = Conekta_Charge::create(array(
   {
     $str_reg_card = "UPDATE usuarios SET estatus_usuario = 2 where id_usuario = ".$_SESSION["user"]["id_usuario"];
     //echo $str_reg_card;
-    mysqli_query($conn, $str_reg_card);
+    mysqli_query($conexion, $str_reg_card);
     $str_get_info = "SELECT * FROM usuarios WHERE id_usuario = ".$_SESSION["user"]["id_usuario"];
     //echo $str_get_info;
-    $result = mysqli_query($conn, $str_get_info);
+    $result = mysqli_query($conexion, $str_get_info);
     $row = mysqli_fetch_assoc($result);
     $_SESSION["user"] = $row;
     header("Location:dashboard.php");

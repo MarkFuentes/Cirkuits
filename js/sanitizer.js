@@ -1,7 +1,7 @@
 class Sanitizer
 {
   constructor(strValue)
-  {
+  { 
     this.strValue = strValue;
   }
   sanitize_confirm_email(strEmail2)

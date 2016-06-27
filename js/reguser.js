@@ -19,7 +19,7 @@ function validaText(strValue)
 function validaBirthDate(birthDate)
 {
   var _sanitizer = new Sanitizer(birthDate);
-  var isValid = _sanitizer.sanitize_birth_date("-");
+  var isValid = _sanitizer.sanitize_birth_date("/");
   return isValid;
 }
 function validaForm()
@@ -51,6 +51,17 @@ function validaForm()
         }
       }
     }
+  }else {
+    $('#email').popover({content:"Confirm email, email must be the same"});
+    alert("Email must be the same");
+  }
+  if($('#userName').val() != '')
+  {
+      verify_user();
+  }
+  if($('#email').val() != '')
+  {
+      verify_email();
   }
   return submitForm;
 }

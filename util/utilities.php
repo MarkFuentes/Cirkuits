@@ -11,7 +11,7 @@
     $strQuery .= $userName;
     $strQuery .= "'";
 
-    $result = mysqli_query($GLOBALS["conn"], $strQuery);
+    $result = mysqli_query($GLOBALS["conexion"], $strQuery);
     return mysqli_num_rows($result);
   }
 
@@ -23,8 +23,8 @@
     $strQuery .= " VALUES ('".$name."','".$lstName."', '".$userName."','".$password."',";
     $strQuery .= "'".$email."','".$birthDate."', '".$estatus."')";
 
-    //echo $strQuery;
-    $result = mysqli_query($GLOBALS["conn"], $strQuery);
+    echo $strQuery;
+    $result = mysqli_query($GLOBALS["conexion"], $strQuery);
 
     return $result;
   }
@@ -32,7 +32,7 @@
   function check_card_number($cardNumber)
   {
     $strQuery = "SELECT nombre_tarjeta FROM payment WHERE numero_tarjeta='".$cardNumber."'";
-    $result = mysqli_query($GLOBALS["conn"], $strQuery);
+    $result = mysqli_query($GLOBALS["conexion"], $strQuery);
     return mysqli_num_rows($result);
   }
 
@@ -46,7 +46,7 @@
     $strQuery2 = "UPDATE usuarios SET estatus_usuario=2 WHERE id_usuario='".$userId."'";
     //echo $strQuery;
 
-    $result = mysqli_query($GLOBALS["conn"], $strQuery);
+    $result = mysqli_query($GLOBALS["conexion"], $strQuery);
 
     return $result;
   }

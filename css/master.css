@@ -1,15 +1,39 @@
-
-.navbar-default
-{
-  height: 80px;
-}
 .contenido
 {
   position: relative;
-  width: 854px;
-  height: 480px;
+  margin: 75px 0px 0px 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.form
+{
+  position: relative;
   margin: auto;
-  background-color: 	#EEEEEE;
+  padding: 2%;
+  width: 80%;
+  max-width: 85%;
+  min-width: 60%;
+  text-align: center;
+}
+
+#btn-login
+{
+  position: relative;
+  margin: auto;
+  padding: 0px;
+  width: 50%;
+  max-width: 85%;
+  min-width: 60%;
+  text-align: center;
+}
+
+#regLogin
+{
+  position: relative;
+  margin-top: 2%;
+  margin-left: 20%;
+  width: 80%;
 }
 
 /*******DASHBOARD********/
@@ -80,4 +104,47 @@
   border-radius: 3px;
   border: 1px solid black;
   padding: auto;
+}
+
+.form
+{
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 992px)
+{
+  .contenido
+  {
+    position: relative;
+    margin: 75px 0px 0px 0px;
+    padding: 0px;
+    width: 100%;
+  }
+
+  .form
+  {
+    position: relative;
+    margin: auto;
+    padding: 2%;
+    width: 100%;
+    text-align: center;
+  }
+
+  #btn-login
+  {
+    position: relative;
+    margin: auto;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #regLogin
+  {
+    position: relative;
+    margin: 5% 0% 0% 0%;
+    width: 100%;
+    text-align: center;
+  }
+
 }

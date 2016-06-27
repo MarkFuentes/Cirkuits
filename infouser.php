@@ -10,9 +10,9 @@ if(isset($_SESSION["user"]))
       header("Location:payment.php");
     }
     else if($_SESSION["user"]["estatus_usuario"] == 2){
-      if(isset($_GET["user"]))
+      if(isset($_GET["u"]))
       {
-        $strQuery = "SELECT * FROM usuarios WHERE nombre_usuario = '".$_GET["user"]."'";
+        $strQuery = "SELECT * FROM usuarios WHERE nombre_usuario = '".base64_decode($_GET["u"])."'";
         $result = mysqli_query($GLOBALS["conn"], $strQuery);
         $row = mysqli_fetch_assoc($result);
       }
@@ -55,7 +55,7 @@ if(isset($_SESSION["user"]))
       $('#birthDate').prop('disabled', false);
 
       $('#btn-group').html(
-        '<input type="submit" class="btn btn-success" value="Save" /><input type="submit" class="btn btn-success" value="Back" onclick="cancel_user()" />'
+        '<input type="submit" class="btn btn-success" value="Save" /><input type="submit" class="btn btn-success" value="Cancel" onclick="cancel_user()" />'
       );
     }
 
@@ -99,8 +99,8 @@ if(isset($_SESSION["user"]))
     <div class="" id="userSession">
       <label for="">
         <h3>
-          <?php echo '<a href="infouser.php?user='.$_SESSION["user"]["nombre_usuario"].'" >'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
-          <?php echo '<a href="infouser.php?user='.$_SESSION["user"]["nombre_usuario"].'" class="label label-primary">'; ?><span id="userName"><?php echo $_SESSION["user"]["nombre_usuario"] ?></span></a>
+          <?php echo '<a href="infouser.php?u='.base64_encode($_SESSION["user"]["nombre_usuario"]).'" >'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
+          <?php echo '<a href="infouser.php?u='.base64_encode($_SESSION["user"]["nombre_usuario"]).'" class="label label-primary">'; ?><span id="lblUserName"><?php echo $_SESSION["user"]["nombre_usuario"] ?></span></a>
         </h3>
     </label>
     </div>
@@ -109,7 +109,7 @@ if(isset($_SESSION["user"]))
       <div class="col-md-4"></div>
       <div class="col-md-4 text-center" id="userContent">
         <?php
-        echo '<form action="infouser.php" method="post" id="updateuser_form" onsubmit="return validaForm()">';
+        echo '<form action="infouser.php?u='.base64_encode($_SESSION["user"]["nombre_usuario"]).'" method="post" id="updateuser_form" onsubmit="return validaForm()">';
 
         echo '<div class="form form-group">';
         echo '<input type ="text" class="form-control"

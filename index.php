@@ -64,7 +64,7 @@ if(isset($_SESSION["user_session"]))
           <h3><strong>How Cirkuits it works</strong></h3>
         </div>
           <div class="row">
-            <div class="col-md-12 time-line-izq">
+            <div class="time-line-izq">
               <div class="img-time-line">
                 <img src="img/index/register.png" alt="Register" />
               </div>
@@ -77,9 +77,12 @@ if(isset($_SESSION["user_session"]))
                 </p>
               </div>
              </div>
+             <div class="img-dotted-left">
+               <img src="img/index/dotted.png" alt="Conecta" />
+             </div>
             </div>
             <div class="row">
-            <div class="col-md-12 time-line-der">
+            <div class="time-line-der">
               <div class="img-time-line">
                 <img src="img/index/pay.png" alt="Payment" />
               </div>
@@ -92,9 +95,12 @@ if(isset($_SESSION["user_session"]))
                 </p>
               </div>
             </div>
+            <div class="img-dotted-right">
+              <img src="img/index/dottedl.png" alt="Conecta" />
+            </div>
           </div>
           <div class="row">
-            <div class="col-md-12 time-line-izq">
+            <div class="time-line-izq">
               <div class="img-time-line">
                 <img src="img/index/play.png" alt="Play" />
               </div>
@@ -107,9 +113,12 @@ if(isset($_SESSION["user_session"]))
                 </p>
               </div>
             </div>
+            <div class="img-dotted-left">
+              <img src="img/index/dotted.png" alt="Conecta" />
+            </div>
           </div>
           <div class="row">
-            <div class="col-md-12 time-line-der">
+            <div class="time-line-der">
               <div class="img-time-line">
                 <img src="img/index/level_clear.png" alt="Achivements" />
               </div>

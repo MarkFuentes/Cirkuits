@@ -105,7 +105,7 @@ if(isset($_SESSION["user_session"]))
 
     <div class="row">
       <!-- Footer -->
-      <footer class="footer col-md-12">
+      <footer class="footer col-md-12" style="position:relative">
         <div class="row">
           <div class="foot-section col-md-4" id="contacto">
             <span>+52 777 123 45 67</span>

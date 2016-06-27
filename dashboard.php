@@ -51,13 +51,16 @@
     <div class="" id="userSession">
       <label for="">
         <h3>
-          <?php echo '<a href="infouser.php?user='.$_SESSION["user"]["nombre_usuario"].'" >'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
-          <?php echo '<a href="infouser.php?user='.$_SESSION["user"]["nombre_usuario"].'" class="label label-primary">'; ?><span id="userName"><?php echo $_SESSION["user"]["nombre_usuario"] ?></span></a>
+          <?php echo '<a href="infouser.php?u='.base64_encode($_SESSION["user"]["nombre_usuario"]).'" >'; ?><img src="img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="100px" /></a>
+          <?php echo '<a href="infouser.php?u='.base64_encode($_SESSION["user"]["nombre_usuario"]).'" class="label label-primary">'; ?><span id="lblUserName"><?php echo $_SESSION["user"]["nombre_usuario"] ?></span></a>
         </h3>
     </label>
     </div>
     <br>
     <!-- HERE GOES THE VIDEO GAME -->
+    <div class="">
+
+    </div>
   </div>
 </body>
 </html>

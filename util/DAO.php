@@ -5,6 +5,6 @@
   $dbPass = "des2tramp2dos2";
   $dbName = "cirkuits";
 
-  $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+  $conexion = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
  ?>
