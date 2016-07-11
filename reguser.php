@@ -1,6 +1,10 @@
 <?php
   include_once("util/utilities.php");
+  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+  header("Cache-Control: post-check=0, pre-check=0", false);
+  header("Pragma: no-cache");
   $strServerMsg = "";
+  $date = date("Y-m-d H:i:s");
   if(isset($_POST["name"]))
   {
     $name      = strip_tags($_POST["name"], FILTER_SANITIZE_STRING);
@@ -26,7 +30,7 @@
 
     if(check_user($userName) <= 0)
     {
-      $result = insert_user($name, $lstName, $userName, $password, $email, $birthDate, 1);
+      $result = insert_user($name, $lstName, $userName, $password, $email, $birthDate, 1, $date);
       $id_usuario = mysqli_insert_id($conexion);
       //write_console($result);
       if($result > 0)
@@ -36,12 +40,8 @@
         $select_user = mysqli_query($conexion, $str_query);
         $row = mysqli_fetch_assoc($select_user);
         $_SESSION["user"] = $row;
-        echo '<script>alert("Gracias por registrarte");</script>';
         header("Location:payment.php");
       }
-    }
-    else {
-      echo '<script>alert("El nombre de usuario ya existe")</script>';
     }
   }
  ?>
@@ -96,6 +96,7 @@
     <div class="row">
       <div class="contenido">
         <div class="text-center">
+          <br>
           <h1>Sign up</h1>
         </div>
       </div>

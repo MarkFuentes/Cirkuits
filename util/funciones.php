@@ -1,4 +1,4 @@
-<?php
+<?php 
 
     function GetSQLValueString( $conexion, $theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "" ) {
 

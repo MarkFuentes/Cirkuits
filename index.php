@@ -1,9 +1,13 @@
 <?php
+include_once("util/DAO.php");
 include_once("util/utilities.php");
 if(isset($_SESSION["user_session"]))
 {
   header("location:dashboard.php");
 }
+$query_pricing = sprintf("SELECT * FROM cat_precios");
+$result_pricing = mysqli_query($conexion,$query_pricing);
+$row_pricing = mysqli_fetch_assoc($result_pricing);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,16 +145,17 @@ if(isset($_SESSION["user_session"]))
       <div class="price-tag">
         <span><h3>Annual Billing</h3></span>
         <hr>
-        <span><strong>$1000.00 MXN</strong></span>
+        <span><strong>$ <?= $row_pricing["precio"] ?> MXN</strong></span>
         <hr>
-        <a href="#" class="buy-btn label label-success">Buy</a>
+        <a href="reguser.php" class="buy-btn label label-success">Buy</a>
       </div>
       <div class="price-tag">
+        <?php $row_pricing = mysqli_fetch_assoc($result_pricing); ?>
         <span><h3>Monthly Billing</h3></span>
         <hr>
-        <span><strong>$99.00 MXN</strong></span>
+        <span><strong>$ <?= $row_pricing["precio"] ?> MXN</strong></span>
         <hr>
-        <a href="#" class="buy-btn label label-success">Buy</a>
+        <a href="reguser.php" class="buy-btn label label-success">Buy</a>
       </div>
     </div>
     <div class="row">

@@ -15,13 +15,13 @@
     return mysqli_num_rows($result);
   }
 
-  function insert_user($name, $lstName, $userName, $password, $email, $birthDate, $estatus )
+  function insert_user($name, $lstName, $userName, $password, $email, $birthDate, $estatus, $fecha )
   {
     $strQuery = " INSERT INTO usuarios ";
     $strQuery .= " ( nombre_usuario, apellido_usuario, alter_usuario, password,";
-    $strQuery .= " email_usuario, nacimiento_usuario, estatus_usuario )";
+    $strQuery .= " email_usuario, nacimiento_usuario, estatus_usuario, fecha_registro )";
     $strQuery .= " VALUES ('".$name."','".$lstName."', '".$userName."','".$password."',";
-    $strQuery .= "'".$email."','".$birthDate."', '".$estatus."')";
+    $strQuery .= "'".$email."','".$birthDate."', '".$estatus."','".$fecha."')";
 
     echo $strQuery;
     $result = mysqli_query($GLOBALS["conexion"], $strQuery);

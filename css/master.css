@@ -43,6 +43,7 @@
   width: 100%;
   height: 5%;
   margin-left: 10px;
+  margin-top: 70px;
 }
 /*******Usuario dashboard********/
 .contenidoUsuario
@@ -56,6 +57,14 @@
 {
   position: relative;
   padding: 10px;
+}
+
+#subscription
+{
+  position: relative;
+  width: 80%;
+  height: 530px;
+  margin: auto;
 }
 
 /*******Payment********/
@@ -92,7 +101,7 @@
   width: 100%;
   height: 100px;
   border-radius: 3px;
-  border: 1px solid black;
+  border: 1px solid #EEE;
   padding: auto;
 }
 
@@ -100,9 +109,9 @@
 {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 380px;
   border-radius: 3px;
-  border: 1px solid black;
+  border: 1px solid #EEE;
   padding: auto;
 }
 
@@ -110,7 +119,69 @@
 {
 
 }
+#menu-neuroni
+{
+  background-color: red;
+  position: relative;
+  width: 854px;
+  height: 600px;
+  margin: auto;
+}
+#menu-neuronm
+{
+  background-color: blue;
+  position: relative;
+  width: 854px;
+  height: 600px;
+  margin: auto;
+}
+#menu-neurons
+{
+  background-color: green;
+  position: relative;
+  width: 854px;
+  height: 600px;
+  margin: auto;
+}
 
+#profile
+{
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+#userPhoto
+{
+  position: relative;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+#userInfo
+{
+  position: relative;
+  margin: auto;
+  width: 100%;
+}
+#userNameP
+{
+  position: relative;
+  width: 100%;
+  margin-top: 5%;
+  text-align: center;
+}
+#userExtra
+{
+  position: relative;
+  width: 65%;
+  margin-top: 2%;
+  margin-left: 35%;
+}
+#userProgress
+{
+  position: relative;
+  width: 100%;
+}
 @media screen and (min-width: 320px) and (max-width: 992px)
 {
   .contenido
@@ -147,4 +218,43 @@
     text-align: center;
   }
 
+  #profile
+  {
+    position: relative;
+    width: 100%;
+    margin: auto;
+  }
+
+  #userPhoto
+  {
+    position: relative;
+    margin-top: 10%;
+    width: 100%;
+  }
+
+  #userAvatar
+  {
+    width: 128px;
+  }
+  #userExtra
+  {
+    position: relative;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 0px;
+    text-align: center;
+  }
+  #userExtra > table{
+    width: 100%;
+  }
+  .data
+  {
+    display: none;
+  }
+  #userProgress
+  {
+    position: relative;
+    width: 80%;
+    margin: auto;
+  }
 }
