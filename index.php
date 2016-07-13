@@ -1,9 +1,10 @@
 <?php
 include_once("util/DAO.php");
 include_once("util/utilities.php");
-if(isset($_SESSION["user_session"]))
+session_start();
+if(isset($_SESSION["user"]))
 {
-  header("location:dashboard.php");
+  header("location:".$url."dashboard");
 }
 $query_pricing = sprintf("SELECT * FROM cat_precios");
 $result_pricing = mysqli_query($conexion,$query_pricing);
@@ -33,15 +34,15 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#" class="navbar-brand"><img src="img/logo2.png" alt="Logo Cirkuits" class="img-navbar"/></a>
+        <a href="<?=$url;?>" class="navbar-brand"><img src="img/logo2.png" alt="Logo Cirkuits" class="img-navbar"/></a>
       </div>
       <div class="collapse navbar-collapse" id="cirkuitsNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="index.php"><strong>Home</strong></a></li>
-          <li><a href="cirkuits.php"><strong>Cirkuits</strong></a></li>
-          <li><a href="videojuegos.php"><strong>Video Games</strong></a></li>
-          <li><a href="reguser.php"><span class="glyphicon glyphicon-user"></span> <strong>Sing Up</strong></a></li>
-          <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> <strong>Login</strong></a></li>
+          <li><a href="<?=$url;?>"><strong>Home</strong></a></li>
+          <li><a href="<?=$url;?>about"><strong>Cirkuits</strong></a></li>
+          <li><a href="<?=$url;?>videogames"><strong>Video Games</strong></a></li>
+          <li><a href="<?=$url;?>singup"><span class="glyphicon glyphicon-user"></span> <strong>Sing Up</strong></a></li>
+          <li><a href="<?=$url;?>singin"><span class="glyphicon glyphicon-log-in"></span> <strong>Login</strong></a></li>
         </ul>
       </div>
     </div>

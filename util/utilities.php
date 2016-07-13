@@ -1,5 +1,6 @@
 <?php
   include("DAO.php");
+  $url = "http://192.168.1.73/cirkuits/";
   function write_console($strMsg)
   {
     echo '<script>console.log("'.$strMsg.'")</script>';
