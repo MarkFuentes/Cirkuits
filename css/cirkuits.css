@@ -2,6 +2,14 @@ body
 {
   font-family: 'Comfortaa', cursive;
 }
+.contenido-singin
+{
+  position: relative;
+  width: 100%;
+  height: 750px;
+  padding: 10%;
+}
+
 .img-navbar
 {
   margin-top: -10px;
@@ -72,8 +80,8 @@ body
 .img-dotted-right
 {
   position: relative;
+  float: right;
   margin-top: 30%;
-  margin-left: 15%;
 }
 .time-line-der
 {
@@ -96,10 +104,10 @@ body
 {
   text-align: center;
 }
-.img-time-line
+.img-time-line > h3
 {
   position: relative;
-  width: 100%;
+  font-size: 15em;
   text-align: center;
 }
 .row-price
@@ -135,27 +143,22 @@ body
   bottom: 0%;
   background-color: #424242;
   color: #FFF;
+  display: inline-block;
+  padding-left: 10%;
 }
 .foot-section
 {
-  width: 33%;
-  height: auto;
-  margin: auto;
-  text-align: center;
-  padding: 2%;
-}
-.social
-{
-  display: inline-block;
-  padding: 0;
   position: relative;
-  text-align: center;
+  width: 33%;
+  float: left;
 }
-.img-social
-{
-  width: 64px;
-  margin: 20px;
-  float: right;
+
+.foot-section > span{
+  margin-top: 5%;
+}
+
+.foot-section > a{
+  margin: 3%;
 }
 .banner-container
 {
@@ -204,7 +207,7 @@ body
 {
   position: relative;
   width: 28%;
-  margin: 0% 5% 2% 0%;
+  margin: 2% 0% 0% 4%;
   padding: 1%;
   float: left;
   border: 1px solid #EEEEEE;
@@ -233,11 +236,40 @@ body
   margin-bottom: 10%;
 }
 
-@media screen and (min-width: 450px) and (max-width: 990px)
+@media screen and (min-width: 768px) and (max-width: 1024px)
+{
+  .foot-section > a{
+    font-size: 7pt;
+  }
+  .img-dotted-left
+  {
+    display: none;
+  }
+  .img-dotted-right
+  {
+    display: none;
+  }
+  .contenido-singin
+  {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding: 10%;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 768px)
 {
   body
   {
     font-family: 'Comfortaa', cursive;
+  }
+  .contenido-singin
+  {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding: 10%;
   }
   .banner-container
   {
@@ -262,14 +294,25 @@ body
     font-size: 24pt;
     color: #FFF;
   }
-  .time-line-izq, .time-line-der
+  .time-line-izq
   {
     position: relative;
     width: 100%;
-    margin-left: 0%;
+    margin-left: 2%;
     margin-right: 0%;
     height: auto;
-
+    border: 0px;
+    float: right;
+    padding: 5%;
+  }
+  .time-line-der
+  {
+    position: relative;
+    width: 100%;
+    margin-left: 2%;
+    margin-right: 0%;
+    height: auto;
+    border: 0px;
   }
   .txt-time-line
   {
@@ -277,15 +320,16 @@ body
     padding: 2%;
     width: 100%;
     height: 100%;
+    text-align: justify;
   }
   .txt-time-line > h3
   {
     text-align: center;
   }
-  .img-time-line > img
+  .img-time-line > h3
   {
     position: relative;
-    width: 200px;
+    font-size: 10em;
     text-align: center;
   }
   .img-dotted-left
@@ -301,13 +345,15 @@ body
     position: relative;
     width: 100%;
     margin: 0px;
-    padding: 2%;
+    text-align: center;
   }
   .price-tag
   {
     position: relative;
-    width: 100%;
-    margin: 0px;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
     text-align: center;
     border: 1px solid #cdc8b1;
     border-radius: 5px;
@@ -340,26 +386,15 @@ body
   }
   .foot-section
   {
-    width: 33%;
-    height: auto;
-    margin: auto;
-    text-align: center;
-    padding: 2%;
-  }
-  .social
-  {
-    display: inline-block;
-    padding: 0;
-    width: 65%;
     position: relative;
-    margin-left: 35%;
+    width: 100%;
+    text-align: center;
   }
-  .img-social
-  {
-    width: 64px;
-    margin: 1%;
-    float: left;
+
+  .foot-section > a{
+    font-size: 7pt
   }
+
   .thumb-wrapper
   {
     position: relative;
@@ -393,6 +428,13 @@ body
   {
     font-family: 'Comfortaa', cursive;
   }
+  .contenido-singin
+  {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding: 10%;
+  }
   .banner-container
   {
     position: relative;
@@ -416,30 +458,42 @@ body
     font-size: 10pt;
     color: #FFF;
   }
-  .time-line-izq, .time-line-der
+  .time-line-izq
   {
     position: relative;
     width: 100%;
-    margin-left: 0%;
+    margin-left: 2%;
     margin-right: 0%;
     height: auto;
-
+    border: 0px;
+    float: right;
+    padding: 5%;
+  }
+  .time-line-der
+  {
+    position: relative;
+    width: 100%;
+    margin-left: 2%;
+    margin-right: 0%;
+    height: auto;
+    border: 0px;
   }
   .txt-time-line
   {
     position: relative;
-    padding: 2%;
+    padding: 4%;
     width: 100%;
     height: 100%;
+    text-align: justify;
   }
   .txt-time-line > h3
   {
     text-align: center;
   }
-  .img-time-line > img
+  .img-time-line > h3
   {
     position: relative;
-    width: 200px;
+    font-size: 5em;
     text-align: center;
   }
   .img-dotted-left
@@ -455,13 +509,14 @@ body
     position: relative;
     width: 100%;
     margin: 0px;
-    padding: 2%;
   }
   .price-tag
   {
     position: relative;
-    width: 100%;
-    margin: 0px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
     text-align: center;
     border: 1px solid #cdc8b1;
     border-radius: 5px;
@@ -485,27 +540,13 @@ body
   }
   .foot-section
   {
+    position: relative;
     width: 100%;
-    height: auto;
-    margin: 0px;
-    padding: 0%;
     text-align: center;
   }
-  .social
-  {
-    display: inline-block;
-    padding: 0;
-    width: 80%;
-    position: relative;
-    margin-left: 20%;
+  .foot-section > a{
+    font-size: 7pt
   }
-  .img-social
-  {
-    width: 64px;
-    margin: 1%;
-    float: left;
-  }
-
   .thumb-wrapper
   {
     position: relative;

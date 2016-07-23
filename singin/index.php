@@ -4,6 +4,9 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 session_start();
+
+$logError = 0;
+
 if(isset($_SESSION["user"]))
 {
   header("location:".$url."dashboard");
@@ -14,12 +17,6 @@ else {
   {
     $email    = strip_tags($_POST["email"], FILTER_SANITIZE_STRING);
     $password = strip_tags($_POST["password"], FILTER_SANITIZE_STRING);
-
-    $strServerMsg .= $email;
-    $strServerMsg .= "|";
-    $strServerMsg .= $password;
-    $strServerMsg .= "|";
-
     $strQuery = "SELECT nombre_usuario FROM usuarios WHERE email_usuario = '".$email."'";
     $result   = mysqli_query($GLOBALS["conexion"], $strQuery) or die(mysqli_error($GLOBALS["conexion"]));
 
@@ -33,14 +30,15 @@ else {
         $row = mysqli_fetch_assoc($result);
         $_SESSION["user"]       = $row;
         header("Location:".$url."dashboard");
+      } else {
+        $logError = 1;
       }
+    }else {
+      $logError = 1;
     }
-
-    write_console($strServerMsg);
   }
 }
  ?>
- <?php //CARET ?>
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -52,16 +50,16 @@ else {
    <link rel="stylesheet" href="<?=$url;?>css/bootstrap.css" />
    <link rel="stylesheet" href="<?=$url;?>css/cirkuits.css" />
    <link rel="stylesheet" href="<?=$url;?>css/master.css" />
+   <link rel="stylesheet" href="<?=$url;?>css/font-awesome-4.6.3/css/font-awesome.min.css">
    <link rel="stylesheet" href="<?=$url;?>css/validationEngine.jquery.css" />
    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet"> <!-- For banner propouses only -->
    <script src="<?=$url;?>js/jquery-1.12.3.min.js"></script>
-   <script src="<?=$url;?>js/bootstrap.min.js"></script>
    <script src="<?=$url;?>js/sanitizer.js"></script>
-   <script src="<?=$url;?>js/jquery-1.12.3.min.js"></script>
    <script src="<?=$url;?>js/jquery.validationEngine-es.js"></script>
    <script src="<?=$url;?>js/jquery.validationEngine.js"></script>
    <script src="<?=$url;?>js/reguser.js"></script>
+   <script src="<?=$url;?>js/bootstrap.min.js"></script>
  </head>
  <body>
    <nav class="navbar navbar-default navbar-fixed-top menu">
@@ -87,9 +85,27 @@ else {
    </nav>
    <div class="container-fluid">
 
+     <!-- Modal for displaying message -->
+     <?php if($logError == 1) { ?>
+     <div class="modal fade bs-example-modal-sm" id="logModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Login failed</h4>
+          </div>
+          <div class="modal-body">
+            Please check your username or password.
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php } ?>
+
      <div class="row">
-       <div class="contenido">
+       <div class="contenido-singin">
          <div class="text-center">
+           <br>
+           <br>
            <h1>Sign in</h1>
          </div>
          <div class="form">
@@ -119,7 +135,7 @@ else {
            <button type="button" name="btnLogin" id="btn-log" onclick="login()" class="btn btn-success btn-block"><h4>Sign In</h4></button>
          </div>
          <div id="regLogin">
-           <span>Not registred yet?</span><h3><a href="reguser.php" class="label label-success">Sign up</a></h3>
+           <span>Not registred yet?</span><h3><a href="<?=$url?>singup" class="label label-success">Sign up</a></h3>
          </div>
        </div>
 
@@ -127,7 +143,7 @@ else {
 
      <div class="row">
        <!-- Footer -->
-       <footer class="footer col-md-12">
+       <footer class="footer col-md-12" style="position:relative;">
          <div class="row">
            <div class="foot-section col-md-4" id="contacto">
              <span>+52 777 123 45 67</span>
@@ -142,15 +158,10 @@ else {
              <br>
            </div>
            <div class="foot-section social" id="social-1">
-             <div class="img-social">
-               <img src="<?=$url;?>img/index/twitter.png" alt="Twitter" />
-             </div>
-             <div class="img-social">
-               <img src="<?=$url;?>img/index/facebook.png" alt="Facebook" />
-             </div>
-             <div class="img-social">
-               <img src="<?=$url;?>img/index/youtube.png" alt="Youtube" />
-             </div>
+             <a href="http://www.twitter.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
+             <a href="http://www.facebook.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
+             <a href="http://www.youtube.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-youtube" aria-hidden="true"></i></span></a>
+             <a href="http://www.instagram.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
            </div>
          </div>
        </footer>
@@ -158,7 +169,10 @@ else {
 
    </div>
    <script type="text/javascript">
-     $(document).ready( function(){ $('#login_form').validationEngine(); } );
+     $(document).ready( function(){
+       $('#login_form').validationEngine();
+       $('#logModal').modal('show');
+     } );
      var login = function()
      {
        $('#login_form').submit();

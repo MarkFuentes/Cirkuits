@@ -18,12 +18,13 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Cirkuits</title>
-  <link rel="stylesheet" href="css/bootstrap.css" />
-  <link rel="stylesheet" href="css/cirkuits.css" />
+  <link rel="stylesheet" href="<?=$url;?>css/bootstrap.css" />
+  <link rel="stylesheet" href="<?=$url;?>css/cirkuits.css" />
+  <link rel="stylesheet" href="<?=$url;?>css/font-awesome-4.6.3/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet"> <!-- For banner propouses only -->
-  <script src="js/jquery-1.12.3.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="<?=$url;?>js/jquery-1.12.3.min.js"></script>
+  <script src="<?=$url;?>js/bootstrap.min.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top menu">
@@ -71,7 +72,8 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
           <div class="row">
             <div class="time-line-izq">
               <div class="img-time-line">
-                <img src="img/index/register.png" alt="Register" />
+                  <!--<img src="img/index/register.png" alt="Register" />-->
+                <h3 style="color:#00c1d5;"><i class="fa fa-users" aria-hidden="true"></i></h3>
               </div>
               <div class="txt-time-line">
                 <h3><strong>Register</strong></h3>
@@ -83,13 +85,14 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
               </div>
              </div>
              <div class="img-dotted-left">
-               <img src="img/index/dotted.png" alt="Conecta" />
+               <img src="<?=$url;?>img/index/dotted.png" alt="Conecta" />
              </div>
             </div>
             <div class="row">
             <div class="time-line-der">
               <div class="img-time-line">
-                <img src="img/index/pay.png" alt="Payment" />
+                <!--<img src="img/index/pay.png" alt="Payment" />-->
+                <h3 style="color:#49c5b1;"><i class="fa fa-credit-card" aria-hidden="true"></i></h3>
               </div>
               <div class="txt-time-line">
                 <h3><strong>Pay</strong></h3>
@@ -101,13 +104,14 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
               </div>
             </div>
             <div class="img-dotted-right">
-              <img src="img/index/dottedl.png" alt="Conecta" />
+              <img src="<?=$url;?>img/index/dottedl.png" alt="Conecta" />
             </div>
           </div>
           <div class="row">
             <div class="time-line-izq">
               <div class="img-time-line">
-                <img src="img/index/play.png" alt="Play" />
+                <!--<img src="img/index/play.png" alt="Play" />-->
+                <h3><i class="fa fa-gamepad" aria-hidden="true"></i></h3>
               </div>
               <div class="txt-time-line">
                 <h3><strong>Play</strong></h3>
@@ -125,7 +129,8 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
           <div class="row">
             <div class="time-line-der">
               <div class="img-time-line">
-                <img src="img/index/level_clear.png" alt="Achivements" />
+                <!--<img src="img/index/level_clear.png" alt="Achivements" />-->
+                <h3 style="color:#FFEB3B;"><i class="fa fa-trophy" aria-hidden="true"></i></h3>
               </div>
               <div class="txt-time-line">
                 <h3><strong>Share your achievements</strong></h3>
@@ -148,7 +153,7 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
         <hr>
         <span><strong>$ <?= $row_pricing["precio"] ?> MXN</strong></span>
         <hr>
-        <a href="reguser.php" class="buy-btn label label-success">Buy</a>
+        <a href="<?=$url;?>singup" class="buy-btn label label-success">Buy</a>
       </div>
       <div class="price-tag">
         <?php $row_pricing = mysqli_fetch_assoc($result_pricing); ?>
@@ -156,14 +161,14 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
         <hr>
         <span><strong>$ <?= $row_pricing["precio"] ?> MXN</strong></span>
         <hr>
-        <a href="reguser.php" class="buy-btn label label-success">Buy</a>
+        <a href="<?=$url;?>singup" class="buy-btn label label-success">Buy</a>
       </div>
     </div>
     <div class="row">
       <!-- Footer -->
       <footer class="footer col-md-12" style="position:relative">
         <div class="row">
-          <div class="foot-section col-md-4" id="contacto">
+          <div class="foot-section" id="contacto">
             <span>+52 777 123 45 67</span>
             <br>
             <span>example@domain.com.mx</span>
@@ -171,20 +176,15 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
             <span>postal code: 63866</span>
             <br>
           </div>
-          <div class="foot-section col-md-4" id="copyright">
+          <div class="foot-section" id="copyright">
             <span>2016 Cirkuits all rights reserved &copy;</span>
             <br>
           </div>
-          <div class="foot-section social" id="social-1">
-            <div class="img-social">
-              <img src="img/index/twitter.png" alt="Twitter" />
-            </div>
-            <div class="img-social">
-              <img src="img/index/facebook.png" alt="Facebook" />
-            </div>
-            <div class="img-social">
-              <img src="img/index/youtube.png" alt="Youtube" />
-            </div>
+          <div class="foot-section" id="social-1">
+              <a href="http://www.twitter.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
+              <a href="http://www.facebook.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
+              <a href="http://www.youtube.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-youtube" aria-hidden="true"></i></span></a>
+              <a href="http://www.instagram.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
           </div>
         </div>
       </footer>

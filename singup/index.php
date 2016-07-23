@@ -19,20 +19,6 @@
     $email     = strip_tags($_POST["email"], FILTER_SANITIZE_STRING);
     $birthDate = strip_tags($_POST["birthDate"], FILTER_SANITIZE_STRING);
 
-    $strServerMsg .= $name;
-    $strServerMsg .= "|";
-    $strServerMsg .= $lstName;
-    $strServerMsg .= "|";
-    $strServerMsg .= $userName;
-    $strServerMsg .= "|";
-    $strServerMsg .= $email;
-    $strServerMsg .= "|";
-    $strServerMsg .= $birthDate;
-    $strServerMsg .= "|";
-
-    write_console(check_user($userName));
-    write_console($strServerMsg);
-
     if(check_user($userName) <= 0)
     {
       $result = insert_user($name, $lstName, $userName, $password, $email, $birthDate, 1, $date);
@@ -63,6 +49,7 @@
   <link rel="stylesheet" href="<?=$url;?>css/cirkuits.css" />
   <link rel="stylesheet" href="<?=$url;?>css/master.css" />
   <link rel="stylesheet" href="<?=$url;?>css/jquery-ui.css" />
+  <link rel="stylesheet" href="<?=$url;?>css/font-awesome-4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?=$url;?>css/validationEngine.jquery.css" />
   <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet"> <!-- For banner propouses only -->
@@ -188,7 +175,7 @@
         <button type="button" name="btnLogin" id="btn-log" onclick="register()" class="btn btn-success btn-block"><h4>Register</h4></button>
       </div>
       <div class="" id="regLogin">
-        <span>Already registred?</span><h3><a href="login.php" class="label label-success">Sign in</a></h3>
+        <span>Already registred?</span><h3><a href="<?=$url?>singin" class="label label-success">Sign in</a></h3>
       </div>
     </div>
 
@@ -209,15 +196,10 @@
             <br>
           </div>
           <div class="foot-section social" id="social-1">
-            <div class="img-social">
-              <img src="<?=$url;?>img/index/twitter.png" alt="Twitter" />
-            </div>
-            <div class="img-social">
-              <img src="<?=$url;?>img/index/facebook.png" alt="Facebook" />
-            </div>
-            <div class="img-social">
-              <img src="<?=$url;?>img/index/youtube.png" alt="Youtube" />
-            </div>
+            <a href="http://www.twitter.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
+            <a href="http://www.facebook.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
+            <a href="http://www.youtube.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-youtube" aria-hidden="true"></i></span></a>
+            <a href="http://www.instagram.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
           </div>
         </div>
       </footer>

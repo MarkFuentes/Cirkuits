@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="<?=$url;?>css/cirkuits.css" />
     <link rel="stylesheet" href="<?=$url;?>css/master.css" />
     <link rel="stylesheet" href="<?=$url;?>css/jquery-ui.css" />
+    <link rel="stylesheet" href="<?=$url;?>css/font-awesome-4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?=$url;?>css/validationEngine.jquery.css" />
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
@@ -108,15 +109,10 @@
               <br>
             </div>
             <div class="foot-section social" id="social-1">
-              <div class="img-social">
-                <img src="<?=$url;?>img/index/twitter.png" alt="Twitter" />
-              </div>
-              <div class="img-social">
-                <img src="<?=$url;?>img/index/facebook.png" alt="Facebook" />
-              </div>
-              <div class="img-social">
-                <img src="<?=$url;?>img/index/youtube.png" alt="Youtube" />
-              </div>
+              <a href="http://www.twitter.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
+              <a href="http://www.facebook.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
+              <a href="http://www.youtube.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-youtube" aria-hidden="true"></i></span></a>
+              <a href="http://www.instagram.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
             </div>
           </div>
         </footer>
