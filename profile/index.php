@@ -111,8 +111,13 @@ if(isset($_SESSION["user"]))
            </div>
            <div id="userInfo" class="">
              <div id="userNameP" class="row">
-               <a href="<?=$url;?>edit" class="label label-success" style="font-size:12pt;">Edit info</a>
-               <span style="font-size:14pt; font-weight:bold;"><?= $row_user_data["nombre_usuario"]?></span>
+               <a href="<?=$url;?>edit" class="label label-success" style="font-size:12pt;">
+                 <span style="font-size:14pt;">
+                   <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                 </span>Edit info &nbsp;
+               </a>
+               &nbsp;&nbsp;<span style="font-size:14pt; font-weight:bold;"><?= $row_user_data["nombre_usuario"]?></span>
                <span style="font-size:14pt; font-weight:bold;"><?= $row_user_data["apellido_usuario"]?></span>
              </div>
              <div id="userExtra">
@@ -171,9 +176,12 @@ if(isset($_SESSION["user"]))
                   $mathHelper = $nivelActual * 100;
                   $percentage = $mathHelper / $totalNiveles;
                  ?>
-                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
                   aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
+                  <span style="font-size:14pt;">
+                    <i class="fa fa-gamepad" aria-hidden="true"></i>
                     <?= (int)$percentage; ?> %
+                  </span>
                   </div>
                 </div>
                 <!-- Videojuego 2 -->
@@ -188,9 +196,12 @@ if(isset($_SESSION["user"]))
                    $mathHelper = $nivelActual * 100;
                    $percentage = $mathHelper / $totalNiveles;
                   ?>
-                   <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                   <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
                    aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
+                   <span style="font-size:14pt;">
+                     <i class="fa fa-gamepad" aria-hidden="true"></i>
                      <?= (int)$percentage; ?> %
+                   </span>
                    </div>
                  </div>
                  <!-- Videojuego 3 -->
@@ -205,9 +216,12 @@ if(isset($_SESSION["user"]))
                     $mathHelper = $nivelActual * 100;
                     $percentage = $mathHelper / $totalNiveles;
                    ?>
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
                     aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
+                    <span style="font-size:14pt;">
+                      <i class="fa fa-gamepad" aria-hidden="true"></i>
                       <?= (int)$percentage; ?> %
+                    </span>
                     </div>
                   </div>
              </div>

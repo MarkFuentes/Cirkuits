@@ -1,13 +1,13 @@
 <?php
-  require_once("util/DAO.php");
-  require_once("util/funciones.php");
-  require_once("util/utilities.php");
+  require_once("DAO.php");
+  require_once("funciones.php");
+  require_once("utilities.php");
   if(isset($_POST["userName"]))
   {
     $initRegex = "'%";
     $endRegex  = "%'";
     $query_userName = sprintf("SELECT email_usuario FROM usuarios WHERE alter_usuario LIKE %s%s%s",
-    $initRegex,strtolower(GetSQLValueString($conexion, $_POST["userName"], "defined", $_POST["userName"])), 
+    $initRegex,strtolower(GetSQLValueString($conexion, $_POST["userName"], "defined", $_POST["userName"])),
     $endRegex);
     //echo $query_userName; //Warning debug
     $result_userName = mysqli_query($conexion, $query_userName);

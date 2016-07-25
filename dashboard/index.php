@@ -13,6 +13,7 @@
         header("Location:".$url."payment");
       }
       else if($_SESSION["user"]["estatus_usuario"] == 2){
+
       }
       else {
         header("location:".$url."singin");
@@ -23,7 +24,7 @@
   }
  ?>
   <!DOCTYPE html>
-  <html lang="en" manifest="offline.appcache">
+  <html lang="en">
   <head>
     <!-- Standardised web app manifest -->
     <meta charset="UTF-8">
@@ -75,21 +76,137 @@
       <div class="row">
         <div class="contenido">
           <div class="text-center">
+            <br>
+            <br>
             <h1>Dashboard</h1>
           </div>
-        </div>
-        <div id="c2canvasdiv">
-          <canvas id="c2canvas" width="400" height="480">
-      			<!-- This text is displayed if the visitor's browser does not support HTML5.
-      			You can change it, but it is a good idea to link to a description of a browser
-      			and provide some links to download some popular HTML5-compatible browsers. -->
-      			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
-      			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
-      			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
-      			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
-      			<a href="http://www.apple.com/safari/download/">Apple Safari</a><br/>
-      			<a href="http://www.google.com/chromeframe">Google Chrome Frame for Internet Explorer</a><br/></h1>
-      		</canvas>
+
+          <div class="row row-thumb">
+            <div class="game-preview-container">
+              <div>
+                <h3>Neuron igniter</h3>
+              </div>
+              <div class="game-preview-video">
+                <video preload="preload" id="video" autoplay="autoplay" loop="loop" muted>
+                  <source src="<?=$url;?>img/videos/game_play.mp4" type="video/mp4"></source>
+                  <source src="<?=$url;?>img/videos/game_play.m4v" type="video/m4v"></source>
+                </video>
+                <div class="bg-layer">
+                  <p>
+
+                  </p>
+                </div>
+                <div class="game-preview-msg">
+                  <span style="font-size: 5em;">
+                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="row userProgress">
+                <h3>Neuron igniter:&nbsp;lvl&nbsp;<?php echo $_SESSION["uprogressv1"]["nivel"] <= 0 ? "N/A" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
+                <div class="userProgressText">
+                  <span>Progreso</span>
+                </div>
+                <div class="progress userProgressBar">
+                  <?php
+                   $nivelActual = $_SESSION["uprogressv1"]["nivel"];//$row_user_progress_v1["nivel"];
+                   $totalNiveles = $_SESSION["uprogressv1"]["niveles"];//$row_user_progress_v1["niveles"];
+                   $mathHelper = $nivelActual * 100;
+                   $percentage = $mathHelper / $totalNiveles;
+                  ?>
+                   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
+                   aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
+                   <span style="font-size:14pt;">
+                     <i class="fa fa-gamepad" aria-hidden="true"></i>
+                   </span>
+                   </div>
+                 </div>
+               </div>
+            </div>
+            <div class="game-preview-container">
+              <div>
+                <h3>Neuron shooter</h3>
+              </div>
+              <div class="game-preview-video">
+                <video preload="preload" id="video" autoplay="autoplay" loop="loop" muted>
+                  <source src="<?=$url;?>img/videos/game_play.mp4" type="video/mp4"></source>
+                  <source src="<?=$url;?>img/videos/game_play.m4v" type="video/m4v"></source>
+                </video>
+                <div class="bg-layer">
+                  <p>
+
+                  </p>
+                </div>
+                <div class="game-preview-msg">
+                  <span style="font-size: 5em;">
+                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="row userProgress">
+                <h3>Neuron igniter:&nbsp;lvl&nbsp;<?php echo $_SESSION["uprogressv2"]["nivel"] <= 0 ? "N/A" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
+                <div class="userProgressText">
+                  <span>Progreso</span>
+                </div>
+                <div class="progress userProgressBar">
+                  <?php
+                   $nivelActual = $_SESSION["uprogressv2"]["nivel"];//$row_user_progress_v1["nivel"];
+                   $totalNiveles = $_SESSION["uprogressv2"]["niveles"];//$row_user_progress_v1["niveles"];
+                   $mathHelper = $nivelActual * 100;
+                   $percentage = $mathHelper / $totalNiveles;
+                  ?>
+                   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
+                   aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
+                   <span style="font-size:14pt;">
+                     <i class="fa fa-gamepad" aria-hidden="true"></i>
+                   </span>
+                   </div>
+                 </div>
+               </div>
+            </div>
+            <div class="game-preview-container">
+              <div>
+                <h3>Neuron mapper</h3>
+              </div>
+              <div class="game-preview-video">
+                <video preload="preload" id="video" autoplay="autoplay" loop="loop" muted>
+                  <source src="<?=$url;?>img/videos/game_play.mp4" type="video/mp4"></source>
+                  <source src="<?=$url;?>img/videos/game_play.m4v" type="video/m4v"></source>
+                </video>
+                <div class="bg-layer">
+                  <p>
+
+                  </p>
+                </div>
+                <div class="game-preview-msg">
+                  <span style="font-size: 5em;">
+                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="row userProgress">
+                <h3>Neuron igniter:&nbsp;lvl&nbsp;<?php echo $_SESSION["uprogressv3"]["nivel"] <= 0 ? "N/A" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
+                <div class="userProgressText">
+                  <span>Progreso</span>
+                </div>
+                <div class="progress userProgressBar">
+                  <?php
+                   $nivelActual = $_SESSION["uprogressv3"]["nivel"];//$row_user_progress_v1["nivel"];
+                   $totalNiveles = $_SESSION["uprogressv3"]["niveles"];//$row_user_progress_v1["niveles"];
+                   $mathHelper = $nivelActual * 100;
+                   $percentage = $mathHelper / $totalNiveles;
+                  ?>
+                   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
+                   aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
+                   <span style="font-size:14pt;">
+                     <i class="fa fa-gamepad" aria-hidden="true"></i>
+                   </span>
+                   </div>
+                 </div>
+               </div>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -118,39 +235,8 @@
         </footer>
       </div>
     </div>
-    <script src="jquery-2.1.1.min.js"></script>
-    <script src="c2runtime.js"></script>
     <script>
-    		// Size the canvas to fill the browser viewport.
-    		jQuery(window).resize(function() {
-    			cr_sizeCanvas(jQuery(window).width(), jQuery(window).height());
-    		});
 
-    		// Start the Construct 2 project running on window load.
-    		jQuery(document).ready(function ()
-    		{
-    			// Create new runtime using the c2canvas
-    			cr_createRuntime("c2canvas");
-    		});
-
-    		// Pause and resume on page becoming visible/invisible
-    		function onVisibilityChanged() {
-    			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
-    				cr_setSuspended(true);
-    			else
-    				cr_setSuspended(false);
-    		};
-
-    		document.addEventListener("visibilitychange", onVisibilityChanged, false);
-    		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
-    		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
-    		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
-
-    		if (navigator.serviceWorker && navigator.serviceWorker.register)
-    		{
-    			// Register an empty service worker to trigger web app install banners.
-    			navigator.serviceWorker.register("sw.js", { scope: "./" });
-    		}
     </script>
   </body>
   </html>

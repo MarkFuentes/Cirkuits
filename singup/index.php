@@ -223,7 +223,7 @@
       }
       console.log(data); //warning debug
       $.ajax({
-        url:"verificator.php",
+        url:"<?=$url?>util/verificator.php",
         type:"post",
         data: data,
         success: function(response)
@@ -249,7 +249,7 @@
       }
       console.log(data); //warning debug
       $.ajax({
-        url:"verificator.php",
+        url:"<?=$url?>util/verificator.php",
         type:"post",
         data: data,
         success: function(response)

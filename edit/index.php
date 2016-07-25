@@ -104,6 +104,8 @@ if(isset($_SESSION["user"]))
      <div class="row">
        <div class="contenido">
          <div class="text-center">
+           <br>
+           <br>
            <h1>Edit profile</h1>
          </div>
        </div>
@@ -128,7 +130,11 @@ if(isset($_SESSION["user"]))
              data-validation-engine="validate[required, custom[onlyLetterNumber]]"
              data-errormessage-value-missing="User name is required"
              data-errormessage-custom-error="Invalid, let me give you a hint: Awwwgarfiel"
-             name="userName" id="userName" value="<?= $row_user_data["alter_usuario"]?>" disabled />
+             name="userName" id="userName" value="<?= $row_user_data["alter_usuario"]?>" disabled
+             onblur="verify_user()"
+             data-toggle="popover" title="Warning"
+             data-placement="right"
+             data-content="Username already exists" />
            </div>
            <div class="form form-group">
              <input type="password" class="form-control"
@@ -141,7 +147,11 @@ if(isset($_SESSION["user"]))
              data-validation-engine="validate[required,custom[email]]"
              data-errormessage-value-missing="Email is required"
              data-errormessage-custom-error="Invalid, let me give you a hint: someone@nowhere.com"
-             name="email" id="email" value="<?= $row_user_data["email_usuario"]?>" disabled />
+             name="email" id="email" value="<?= $row_user_data["email_usuario"]?>" disabled
+             data-toggle="popover" title="Warning"
+             data-placement="right"
+             data-content="Email already in use"
+             onblur="verify_email()"/>
            </div>
            <div class   ="form form-group">
              <input type ="text" class="form-control"
@@ -168,7 +178,7 @@ if(isset($_SESSION["user"]))
      <br>
      <div class="row">
        <!-- Footer -->
-       <footer class="footer col-md-12">
+       <footer class="footer col-md-12" style="position:relative;">
          <div class="row">
            <div class="foot-section col-md-4" id="contacto">
              <span>+52 777 123 45 67</span>
@@ -215,11 +225,63 @@ if(isset($_SESSION["user"]))
      $('#userName').prop('disabled', true);
      $('#email').prop('disabled', true);
      $('#birthDate').prop('disabled', true);
-     $('#password').prop('disabled', false);
+     $('#password').prop('disabled', true);
 
      $('#btn-group').html(
        '<input type="button" class="btn btn-success" onclick="edit_user()" value="Modificar" /><input type="button" class="btn btn-success" onclick="salir()" value="Back" />'
      );
+   }
+
+   var verify_user = function()
+   {
+     var data = {
+       userName: $('#userName').val()
+     }
+     console.log(data); //warning debug
+     $.ajax({
+       url:"<?=$url?>util/verificator.php",
+       type:"post",
+       data: data,
+       success: function(response)
+       {
+         //console.log(response);
+         var _response = parseInt(response);
+         if(_response == 1)
+         {
+           console.log("popover");
+           $('#userName').popover("show");
+           $('#reguser_form').attr('onsubmit','return false');
+         }else {
+           $('#userName').popover("destroy");
+           $('#reguser_form').attr('onsubmit','return validaForm()');
+         }
+       }
+     })
+   }
+   var verify_email = function()
+   {
+     var data = {
+       email: $('#email').val()
+     }
+     console.log(data); //warning debug
+     $.ajax({
+       url:"<?=$url?>util/verificator.php",
+       type:"post",
+       data: data,
+       success: function(response)
+       {
+         var _response = parseInt(response);
+         if(_response == 1)
+         {
+           console.log("popover");
+           $('#email').popover("show");
+           $('#reguser_form').attr('onsubmit','return false');
+         }else {
+           $('#reguser_form').attr('onsubmit','return validaForm()');
+           $('#email').popover("destroy");
+         }
+       }
+     })
    }
 
    function salir()

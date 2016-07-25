@@ -32,11 +32,31 @@ else {
         $row = mysqli_fetch_assoc($result);
         session_start();
         $_SESSION["user"]       = $row;
-        header("Location:dashboard.php");
+
+        $idUsuario = $_SESSION["user"]["id_usuario"];
+
+        $query_user_progress_v1 = sprintf("SELECT * FROM videogame_progress VP INNER JOIN cat_videogames CV ON VP.id_videogame = CV.id_videogame WHERE id_usuario = %s AND VP.id_videogame = 1",
+        GetSQLValueString($conexion,$idUsuario, "int"));
+        $result_user_progress_v1 = mysqli_query($conexion, $query_user_progress_v1) or die(mysqli_error($conexion));
+
+        $_SESSION["uprogressv1"] = $row_user_progress_v1 = mysqli_fetch_assoc($result_user_progress_v1);
+
+        $query_user_progress_v2 = sprintf("SELECT * FROM videogame_progress VP INNER JOIN cat_videogames CV ON VP.id_videogame = CV.id_videogame WHERE id_usuario = %s AND VP.id_videogame = 2",
+        GetSQLValueString($conexion,$idUsuario, "int"));
+        $result_user_progress_v2 = mysqli_query($conexion, $query_user_progress_v2) or die(mysqli_error($conexion));
+
+        $_SESSION["uprogressv2"] = $row_user_progress_v2 = mysqli_fetch_assoc($result_user_progress_v2);
+
+        $query_user_progress_v3 = sprintf("SELECT * FROM videogame_progress VP INNER JOIN cat_videogames CV ON VP.id_videogame = CV.id_videogame WHERE id_usuario = %s AND VP.id_videogame = 3",
+        GetSQLValueString($conexion,$idUsuario, "int"));
+        $result_user_progress_v3 = mysqli_query($conexion, $query_user_progress_v3) or die(mysqli_error($conexion));
+
+        $_SESSION["uprogressv3"] = $row_user_progress_v3 = mysqli_fetch_assoc($result_user_progress_v3);
+
+
+        //header("Location:dashboard.php");
       }
     }
-
-    write_console($strServerMsg);
   }
 }
  ?>
