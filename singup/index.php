@@ -209,7 +209,14 @@
   <script type="text/javascript">
     $(document).ready( function(){
       $('#reguser_form').validationEngine();
-      $('#birthDate').datepicker({changeYear:true});
+      $('#birthDate').datepicker({
+        dateFormat: "yy-mm-dd",
+        changeMonth: true,
+        changeYear: true,
+        maxDate: "-4Y",
+        minDate: "-100Y",
+        yearRange: "-100:-4"
+      });
     } );
     var register = function()
     {

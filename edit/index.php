@@ -110,7 +110,7 @@ if(isset($_SESSION["user"]))
          </div>
        </div>
        <div id="user-content">
-         <form class="" action="" method="post">
+         <form id="edituser_form" class="" action="" method="post">
            <div class="form form-group">
              <input type ="text" class="form-control"
              data-validation-engine="validate[required, custom[onlyLetterSp]]"
@@ -161,11 +161,11 @@ if(isset($_SESSION["user"]))
              name="birthDate" id="birthDate"  value="<?= $row_user_data["nacimiento_usuario"]?>" disabled />
            </div>
            <input type="hidden" name="Insert" value="1">
+           <input type="hidden" name="iduser" id="idusere" value="<?=$_SESSION["user"]["id_usuario"]?>">
            <div class="text-center">
            <div class="btn-group btn-group-lg" id="btn-group" role="group">
            <input type="button" class="btn btn-success" onclick="edit_user()" value="Modificar" />
            <input type="button" class="btn btn-success" onclick="salir()" value="Back" />
-
            </div>
            </div>
          </form>
@@ -203,7 +203,7 @@ if(isset($_SESSION["user"]))
      </div>
    </div>
    <script>
-   $(document).ready( function(){ $('#updateuser_form').validationEngine(); } );
+   $(document).ready( function(){ $('#updateuser_form').validationEngine(); $('#birthDate').datepicker({changeYear:true}); } );
    function edit_user()
    {
      $('#name').prop('disabled', false);
@@ -235,7 +235,9 @@ if(isset($_SESSION["user"]))
    var verify_user = function()
    {
      var data = {
-       userName: $('#userName').val()
+       _userName: $('#userName').val(),
+       edit:1,
+       id:$('#idusere').val()
      }
      console.log(data); //warning debug
      $.ajax({
@@ -244,16 +246,16 @@ if(isset($_SESSION["user"]))
        data: data,
        success: function(response)
        {
-         //console.log(response);
+         console.log(response);
          var _response = parseInt(response);
          if(_response == 1)
          {
            console.log("popover");
            $('#userName').popover("show");
-           $('#reguser_form').attr('onsubmit','return false');
+           $('#edituser_form').attr('onsubmit','return false');
          }else {
            $('#userName').popover("destroy");
-           $('#reguser_form').attr('onsubmit','return validaForm()');
+           $('#edituser_form').attr('onsubmit','return validaForm()');
          }
        }
      })
@@ -261,7 +263,9 @@ if(isset($_SESSION["user"]))
    var verify_email = function()
    {
      var data = {
-       email: $('#email').val()
+       _email: $('#email').val(),
+       edit:1,
+       id:$('#idusere').val()
      }
      console.log(data); //warning debug
      $.ajax({
@@ -271,13 +275,14 @@ if(isset($_SESSION["user"]))
        success: function(response)
        {
          var _response = parseInt(response);
+         //console.log(response);
          if(_response == 1)
          {
            console.log("popover");
            $('#email').popover("show");
-           $('#reguser_form').attr('onsubmit','return false');
+           $('#edituser_form').attr('onsubmit','return false');
          }else {
-           $('#reguser_form').attr('onsubmit','return validaForm()');
+           $('#edituser_form').attr('onsubmit','return validaForm()');
            $('#email').popover("destroy");
          }
        }
@@ -286,7 +291,8 @@ if(isset($_SESSION["user"]))
 
    function salir()
    {
-     window.history.back();
+     //window.history.back();
+     window.location.href="<?=$url?>profile"
    }
    </script>
  </body>

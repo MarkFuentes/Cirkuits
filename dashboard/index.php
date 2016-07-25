@@ -86,24 +86,28 @@
               <div>
                 <h3>Neuron igniter</h3>
               </div>
+              <div class="bg-layer">
+                <p>
+
+                </p>
+              </div>
               <div class="game-preview-video">
                 <video preload="preload" id="video" autoplay="autoplay" loop="loop" muted>
                   <source src="<?=$url;?>img/videos/game_play.mp4" type="video/mp4"></source>
                   <source src="<?=$url;?>img/videos/game_play.m4v" type="video/m4v"></source>
                 </video>
-                <div class="bg-layer">
-                  <p>
-
-                  </p>
-                </div>
                 <div class="game-preview-msg">
                   <span style="font-size: 5em;">
-                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <?php if($_SESSION["uprogressv1"]["nivel"] <= 0) {  ?>
+                      <i class="fa fa-lock" aria-hidden="true"></i>
+                    <?php }else { ?>
+                      <a href="#" style="color:#FFF"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+                    <?php } ?>
                   </span>
                 </div>
               </div>
               <div class="row userProgress">
-                <h3>Neuron igniter:&nbsp;lvl&nbsp;<?php echo $_SESSION["uprogressv1"]["nivel"] <= 0 ? "N/A" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
+                <h3>lvl&nbsp;<?php echo $_SESSION["uprogressv1"]["nivel"] <= 0 ? "LOCKED" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
                 <div class="userProgressText">
                   <span>Progreso</span>
                 </div>
@@ -116,9 +120,6 @@
                   ?>
                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
                    aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
-                   <span style="font-size:14pt;">
-                     <i class="fa fa-gamepad" aria-hidden="true"></i>
-                   </span>
                    </div>
                  </div>
                </div>
@@ -127,24 +128,28 @@
               <div>
                 <h3>Neuron shooter</h3>
               </div>
+              <div class="bg-layer">
+                <p>
+
+                </p>
+              </div>
               <div class="game-preview-video">
                 <video preload="preload" id="video" autoplay="autoplay" loop="loop" muted>
                   <source src="<?=$url;?>img/videos/game_play.mp4" type="video/mp4"></source>
                   <source src="<?=$url;?>img/videos/game_play.m4v" type="video/m4v"></source>
                 </video>
-                <div class="bg-layer">
-                  <p>
-
-                  </p>
-                </div>
                 <div class="game-preview-msg">
                   <span style="font-size: 5em;">
-                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <?php if($_SESSION["uprogressv2"]["nivel"] <= 0) {  ?>
+                      <i class="fa fa-lock" aria-hidden="true"></i>
+                    <?php }else { ?>
+                      <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <?php } ?>
                   </span>
                 </div>
               </div>
               <div class="row userProgress">
-                <h3>Neuron igniter:&nbsp;lvl&nbsp;<?php echo $_SESSION["uprogressv2"]["nivel"] <= 0 ? "N/A" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
+                <h3>lvl&nbsp;<?php echo $_SESSION["uprogressv2"]["nivel"] <= 0 ? "Locked" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
                 <div class="userProgressText">
                   <span>Progreso</span>
                 </div>
@@ -157,9 +162,6 @@
                   ?>
                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
                    aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
-                   <span style="font-size:14pt;">
-                     <i class="fa fa-gamepad" aria-hidden="true"></i>
-                   </span>
                    </div>
                  </div>
                </div>
@@ -168,24 +170,28 @@
               <div>
                 <h3>Neuron mapper</h3>
               </div>
+              <div class="bg-layer">
+                <p>
+
+                </p>
+              </div>
               <div class="game-preview-video">
                 <video preload="preload" id="video" autoplay="autoplay" loop="loop" muted>
                   <source src="<?=$url;?>img/videos/game_play.mp4" type="video/mp4"></source>
                   <source src="<?=$url;?>img/videos/game_play.m4v" type="video/m4v"></source>
                 </video>
-                <div class="bg-layer">
-                  <p>
-
-                  </p>
-                </div>
                 <div class="game-preview-msg">
                   <span style="font-size: 5em;">
-                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <?php if($_SESSION["uprogressv3"]["nivel"] <= 0) {  ?>
+                      <i class="fa fa-lock" aria-hidden="true"></i>
+                    <?php }else { ?>
+                      <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <?php } ?>
                   </span>
                 </div>
               </div>
               <div class="row userProgress">
-                <h3>Neuron igniter:&nbsp;lvl&nbsp;<?php echo $_SESSION["uprogressv3"]["nivel"] <= 0 ? "N/A" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
+                <h3>lvl&nbsp;<?php echo $_SESSION["uprogressv3"]["nivel"] <= 0 ? "Locked" : $_SESSION["uprogressv1"]["nivel"];//row_user_progress_v1["nivel"] <= 0 ?  "N/A" : $row_user_progress_v1["nivel"]; ?></h3>
                 <div class="userProgressText">
                   <span>Progreso</span>
                 </div>
@@ -198,9 +204,6 @@
                   ?>
                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?= (int)$percentage; ?>"
                    aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage; ?>%">
-                   <span style="font-size:14pt;">
-                     <i class="fa fa-gamepad" aria-hidden="true"></i>
-                   </span>
                    </div>
                  </div>
                </div>

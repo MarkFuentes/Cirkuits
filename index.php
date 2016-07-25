@@ -204,7 +204,7 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
     {
       console.log("change"); //Debug !warning
       var SCREEN_WIDTH = $(window).width();
-      var SCREEN_HEIGHT = $(window).width();
+      var SCREEN_HEIGHT = $(window).height();
       //Getting and setting the banner
       if(SCREEN_WIDTH >= 360 )
       {
