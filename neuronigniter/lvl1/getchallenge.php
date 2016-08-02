@@ -1,6 +1,9 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-for ($i=0; $i < 5 ; $i++) {
-    echo "Text_".$i."|";
+$file = fopen("challenge.txt", "r")or die("Unable to open file!");
+while(!feof($file))
+{
+  echo fgets($file)."|";
 }
+fclose($file);
 ?>
