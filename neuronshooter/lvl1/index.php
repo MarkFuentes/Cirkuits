@@ -47,7 +47,7 @@
          <ul class="nav navbar-nav navbar-right">
            <li><a href="../../dashboard.php"><strong>Dashboard</strong></a></li>
            <li><a href="../../infosubscription.php"><strong>Subscription</strong></a></li>
-           <li><a href="#"><strong>Update payment</strong></a></li>
+           <li><a href="<?=$url?>updatepayment/"><strong>Update payment</strong></a></li>
            <li><a href="../../infouser.php?u=<?php echo base64_encode($_SESSION["user"]["nombre_usuario"])?>"> <img src="../../img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="32px" style="top:-10px" /> </a></li>
            <li><a href="../../infouser.php?u=<?php echo base64_encode($_SESSION["user"]["nombre_usuario"])?>"><strong><?php echo $_SESSION["user"]["alter_usuario"] ?></strong></a></li>
            <li><a href="../..exit.php"><span class="label label-danger">Log out</span></a></li>

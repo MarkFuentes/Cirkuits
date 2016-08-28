@@ -93,7 +93,7 @@ if(isset($_SESSION["user"]))
          <ul class="nav navbar-nav navbar-right">
            <li><a href="<?=$url;?>dashboard"><strong>Dashboard</strong></a></li>
            <li><a href="<?=$url;?>subscription"><strong>Subscription</strong></a></li>
-           <li><a href="#"><strong>Update payment</strong></a></li>
+           <li><a href="<?=$url?>updatepayment/"><strong>Update payment</strong></a></li>
            <li><a href="<?=$url;?>profile"><img src="<?=$url;?>img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="32px" style="top:-10px" /></a></li>
            <li><a href="<?=$url;?>profile"><strong><?php echo $_SESSION["user"]["alter_usuario"] ?></strong></a></li>
            <li><a href="<?=$url;?>exit.php"><span class="label label-danger">Log out</span></a></li>

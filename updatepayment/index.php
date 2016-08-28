@@ -14,44 +14,13 @@ if(isset($_SESSION["user"]))
       header("Location:".$url."payment");
     }
     else if($_SESSION["user"]["estatus_usuario"] == 2){
+
       $str_pago = sprintf("SELECT * FROM pago where id_usuario = %s ORDER BY fecha DESC",
       $_SESSION["user"]["id_usuario"]);
 
       $rs_pago = mysqli_query($conexion, $str_pago);
 
       $row_pago = mysqli_num_rows($rs_pago) > 0 ? mysqli_fetch_assoc($rs_pago) : NULL;
-
-
-      if($row_pago["id_tipo"] == 1)
-      {
-        $prev_year = intval(substr($row_pago["fecha"], 0, 4));
-        $prev_month = intval(substr($row_pago["fecha"], 5, 2));
-        $prev_day = intval(substr($row_pago["fecha"], 8, 2));
-
-        $dateToday = date("Y-m-d");
-        $today_year = substr($dateToday, 0, 4);
-
-        if(fitDate((int)$prev_day, (int)($prev_month + 1)) == 0)
-        {
-          $dateHelper = $prev_day.".0".($prev_month + 1).".".$today_year;
-        }else {
-          $dateHelper = fitDate($prev_day, ($prev_month + 1)).".0".($prev_month + 2).".".$today_year;
-        }
-      }else {
-        $prev_year = intval(substr($row_pago["fecha"], 0, 4));
-        $prev_month = intval(substr($row_pago["fecha"], 5, 2));
-        $prev_day = intval(substr($row_pago["fecha"], 8, 2));
-
-        $dateToday = date("Y-m-d");
-        $today_year = substr($dateToday, 0, 4);
-
-        if(fitDate((int)$prev_day, (int)($prev_month + 1)) == 0)
-        {
-          $dateHelper = $prev_day.".0".($prev_month + 1).".".($prev_year + 1);
-        }else {
-          $dateHelper = fitDate($prev_day, ($prev_month + 1)).".0".($prev_month + 2).".".($prev_year + 1);
-        }
-      }
 
     }
     else {
@@ -123,13 +92,23 @@ if(isset($_SESSION["user"]))
        <div id="subscription" class="text-center">
          <div id="endDate" class="text-center">
           <p style="padding-top:30px">
-            Su subscripción se renovará automáticamente <strong><?=$dateHelper?></strong> Se le cargará dinero MXN <strong>99.00cf</strong>
+            <?php if($row_pago["id_tipopago"] == 1) {?>
+              <span style="font-size:18pt;"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+              &nbsp;Actualmente tienes una tarjeta cr&eacute;dito/debito registrada.
+            <?php }else{ ?>
+              <span style="font-size:18pt;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
+              Actualmente No cuentas con ninguna tienes una tarjeta registrada.
+            <?php }?>
           </p>
         </div>
         <div id="service" class="text-center">
-          <h3>Producto</h3>
+          <h3>Tarjeta Cr&eacute;dito/Debito</h3>
           <br>
-          <img src="<?=$url;?>img/product.png" class="img-thumbnail" alt="product.png" />
+          <?php if($row_pago["id_tipopago"] == 1) {?>
+            <button type="button" name="button" class="btn btn-primary" onclick="$('#updateCreditModal').modal('show');">Cambiar</button>
+          <?php }else{ ?>
+            <button type="button" name="button" class="btn btn-primary" onclick="$('#addCreditModal').modal('show');">Añadir</button>
+          <?php }?>
         </div>
        </div>
      </div>
@@ -162,8 +141,45 @@ if(isset($_SESSION["user"]))
        </footer>
      </div>
    </div>
-   <script>
 
-   </script>
+   <!-- Modal for update -->
+    <div class="modal fade" id="updateCreditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Cambiar tarjeta</h4>
+          </div>
+          <div class="modal-body">
+            <?php include($url."util/mod_credit.php");?>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for update -->
+    <div class="modal fade" id="addCreditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Añadir tarjeta</h4>
+          </div>
+          <div class="modal-body">
+            <?php include($url."util/mod_credit.php");?>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
  </body>
  </html>

@@ -50,12 +50,12 @@
        </div>
        <div class="collapse navbar-collapse" id="cirkuitsNavbar">
          <ul class="nav navbar-nav navbar-right">
-           <li><a href="dashboard.php"><strong>Dashboard</strong></a></li>
-           <li><a href="infosubscription.php"><strong>Subscription</strong></a></li>
-           <li><a href="#"><strong>Update payment</strong></a></li>
-           <li><a href="infouser.php?u=<?php echo base64_encode($_SESSION["user"]["nombre_usuario"])?>"> <img src="<?=$url;?>img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="32px" style="top:-10px" /> </a></li>
-           <li><a href="infouser.php?u=<?php echo base64_encode($_SESSION["user"]["nombre_usuario"])?>"><strong><?php echo $_SESSION["user"]["alter_usuario"] ?></strong></a></li>
-           <li><a href="exit.php"><span class="label label-danger">Log out</span></a></li>
+           <li><a href="<?=$url;?>dashboard"><strong>Dashboard</strong></a></li>
+           <li><a href="<?=$url;?>subscription"><strong>Subscription</strong></a></li>
+           <li><a href="<?=$url?>updatepayment/"><strong>Update payment</strong></a></li>
+           <li><a href="<?=$url;?>profile"> <img src="<?=$url;?>img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="32px" style="top:-10px" /> </a></li>
+           <li><a href="<?=$url;?>profile"><strong><?php echo $_SESSION["user"]["alter_usuario"] ?></strong></a></li>
+           <li><a href="<?=$url;?>exit.php"><span class="label label-danger">Log out</span></a></li>
          </ul>
        </div>
      </div>
@@ -67,70 +67,17 @@
            <h1>Payment</h1>
          </div>
        </div>
-       <div class="form">
-         <form action="processpayment.php" method="post" id="card-form">
-           <span class="card-errors"></span>
-           <div class="form form-group">
-             <input type="text" class="form-control"
-              data-conekta="card[name]"
-              data-validation-engine="validate[required, custom[onlyLetterSp]]"
-              data-errormessage-value-missing="Name is required"
-              data-errormessage-custom-error="Invalid, let me give you a hint: Andrew"
-              name="name" id="name" placeholder="Name"/>
-           </div>
-           <div class="form form-group">
-             <input type="text" class="form-control" name="lastName" id="lastName"
-              data-validation-engine="validate[required, custom[onlyLetterSp]]"
-              data-errormessage-value-missing="Last name is required"
-              data-errormessage-custom-error="Invalid, let me give you a hint: Garfield"
-              placeholder="Last name" />
-           </div>
-           <div class="form form-group">
-             <input type="text" class="form-control" name="cardNumber" id="cardNumber"
-             data-conekta="card[number]"
-             data-validation-engine="validate[required]"
-             data-errormessage-value-missing="Card number is required"
-             data-errormessage-custom-error="Invalid, let me give you a hint: 5504909923086138"
-             placeholder="Card number" />
-           </div>
-           <div class="form form-group">
-             <input type="text" class="form-control" id="cardValidMonth"
-             data-conekta="card[exp_month]"
-             data-validation-engine="validate[required]"
-             data-errormessage-value-missing="Month is required"
-             data-errormessage-custom-error="Invalid, let me give you a hint: 01"
-             name="cardValidMonth" placeholder="MM" />
-             <input type="number" class="form-control" id="cardValidYear"
-             data-conekta="card[exp_year]"
-             data-validation-engine="validate[required]"
-             data-errormessage-value-missing="Year is required"
-             data-errormessage-custom-error="Invalid, let me give you a hint: 20"
-             name="cardValidYear" placeholder="YY" />
-           </div>
-           <div class="form form-group">
-             <input type="text" class="form-control" name="cvc" id="cvc"
-              data-conekta="card[cvc]"
-              data-validation-engine="validate[required, length[0,2]]"
-              data-errormessage-value-missing="cvc is required"
-              data-errormessage-custom-error="Invalid, let me give you a hint: 000"
-              placeholder="cvc" />
-           </div>
-           <div class="form form-group">
-             <select type="text" class="form-control" name="tipoSubscripcion" id="tipoSubscripcion"
-              data-validation-engine="validate[required]"
-              data-errormessage-value-missing="Please select a subscription">
-              <option value="1">Monthly</option>
-              <option value="2">Annual</option>
-            </select>
-           </div>
-           <div class="btn-group btn-group-lg" role="group">
-             <button type="submit" class="btn btn-success" value="Pay">Pay</button>
-             <input type="button" class="btn btn-success" onclick="limpiar()" value="Cancel" />
-           </div>
-           <br>
-         </form>
+       <?php include($url."util/mod_credit.php"); ?>
+       <div class="text-center" style="position:relative;width:100%;">
+         <div class="btn-group btn-group-lg" role="group">
+           <button type="submit" class="btn btn-success" value="Pay">Pay</button>
+           <input type="button" class="btn btn-success" onclick="limpiar()" value="Cancel" />
+         </div>
        </div>
      </div>
+     <br>
+     <br>
+     <br>
      <div class="row">
        <!-- Footer -->
        <footer class="footer col-md-12" style="position:relative">

@@ -72,4 +72,60 @@
     return $flag;
   }
 
+  function fitDate($day, $month){
+    $max_day = 0;
+    $returnValue = 1;
+    switch ($month) {
+      case 1:
+        $max_day = 31;
+        $returnValue = $day <= $max_day ? 0 : $day - $max_day;
+        break;
+      case 2:
+        $max_day = date('L') ? 28 : 29;
+        $returnValue = $day <= $max_day ? 0 : $day - $max_day;
+        break;
+      case 3:
+        $max_day = 31;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 4:
+        $max_day = 30;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 5:
+        $max_day = 31;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 6:
+        $max_day = 30;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 7:
+        $max_day = 31;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 8:
+        $max_day = 31;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 9:
+        $max_day = 30;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 10:
+        $max_day = 31;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 11:
+        $max_day = 30;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+      case 12:
+        $max_day = 31;
+        $returnValue = $day <= $max_day ? 0: $day - $max_day;
+        break;
+    }
+    return $returnValue;
+  }
+
  ?>
