@@ -101,7 +101,7 @@
                     <?php if($_SESSION["uprogressv1"]["nivel"] <= 0) {  ?>
                       <i class="fa fa-lock" aria-hidden="true"></i>
                     <?php }else { ?>
-                      <a href="#" style="color:#FFF"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+                      <a href="<?=$url?>neuronigniter/" style="color:#FFF"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
                     <?php } ?>
                   </span>
                 </div>
@@ -143,7 +143,7 @@
                     <?php if($_SESSION["uprogressv2"]["nivel"] <= 0) {  ?>
                       <i class="fa fa-lock" aria-hidden="true"></i>
                     <?php }else { ?>
-                      <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                      <a href="<?=$url?>neuronshoter/" style="color:#FFF"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
                     <?php } ?>
                   </span>
                 </div>
@@ -185,7 +185,7 @@
                     <?php if($_SESSION["uprogressv3"]["nivel"] <= 0) {  ?>
                       <i class="fa fa-lock" aria-hidden="true"></i>
                     <?php }else { ?>
-                      <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                      <a href="<?=$url?>neuronmapper/" style="color:#FFF"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
                     <?php } ?>
                   </span>
                 </div>

@@ -51,4 +51,25 @@
 
     return $result;
   }
+
+  function iflvlExists($lvl,$idVideogame,$idUser)
+  {
+
+    $flag = 0;
+
+    $str_check_if_level = sprintf("SELECT score, nivel FROM videogame_progress WHERE id_videogame = %s AND id_usuario = %s AND nivel = %s",
+    GetSQLValueString($GLOBALS["conexion"], $idVideogame, "int"),
+    GetSQLValueString($GLOBALS["conexion"], $idUser, "int"),
+    GetSQLValueString($GLOBALS["conexion"], $lvl, "int"));
+
+    $rs = mysqli_query($GLOBALS["conexion"], $str_check_if_level)or die(mysqli_error($conexion));
+
+    $row =  mysqli_num_rows($rs) > 0 ? mysqli_fetch_assoc($rs) : NULL;
+
+    if($lvl == $row["nivel"])
+      $flag = 1;
+
+    return $flag;
+  }
+
  ?>

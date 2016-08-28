@@ -1,0 +1,52 @@
+body{
+  background: url(../images/neuronigniterBg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.ilvlWrapper{
+  position: relative;
+  width: 40%;
+  margin: auto;
+}
+
+.dlvlWrapper{
+  position: relative;
+  width: 40%;
+  margin: auto;
+}
+
+.lvlTitle{
+  color:#FFF;
+  font-weight: bold;
+  font-size: 26pt;
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 80px;
+  text-align: center;
+  font-family: 'Mogra', cursive;
+}
+
+.lvlSumarry
+{
+  color:#FFF;
+  font-size: 28pt;
+  position: absolute;
+  margin-top: 480px;
+  margin-left: 60px;
+  text-align: left;
+  font-family: 'Mogra', cursive;
+}
+
+.ico{
+  color:#FFC107;
+}
+
+#nIgniterLvlSelector{
+ width: 80%;
+ margin: auto;
+ padding-left: 15%;
+ height: 800px;
+}

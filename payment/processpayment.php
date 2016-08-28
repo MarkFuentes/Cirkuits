@@ -1,11 +1,12 @@
 <?php
-require_once("util/DAO.php");
-require_once("util/funciones.php");
+require_once("../util/DAO.php");
+require_once("../util/funciones.php");
+include_once("../util/utilities.php");
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 session_start();
-require_once("conekta-php/conekta-php/lib/Conekta.php");
+require_once("../conekta-php/conekta-php/lib/Conekta.php");
 Conekta::setApiKey("key_CXCwvWvrrSbdLEn5Pwzjyg");
 
 $nombre     = (isset($_POST["name"]) ? $_POST["name"]                         : "");
@@ -101,30 +102,51 @@ $charge = Conekta_Charge::create(array(
      $result_pago = mysqli_query($conexion, $query_regpago) or die(mysqli_error($conexion));
 
      //Una vez pagado insertamos el progreso en los tres videojuegos, ponemos el nivel uno activo en el primer videojuego y 0 en los otros dos
-     $query_videojuego_1 = sprintf("INSERT INTO videogame_progress(id_videogame, id_usuario, nivel, high_score) VALUES (%s,%s,%s,%s)",
+     $query_videojuego_1 = sprintf("INSERT INTO videogame_progress(id_videogame, id_usuario, nivel, score, estrellas) VALUES (%s,%s,%s,%s, %s)",
      GetSQLValueString($conexion, 1,"int"),
      GetSQLValueString($conexion, $idUsuario,"int"),
      GetSQLValueString($conexion, 1,"int"),
+     GetSQLValueString($conexion, 0,"int"),
      GetSQLValueString($conexion, 0,"int"));
      $result_videojuego_1 = mysqli_query($conexion, $query_videojuego_1) or die(mysqli_error($conexion));
 
-     $query_videojuego_2 = sprintf("INSERT INTO videogame_progress(id_videogame, id_usuario, nivel, high_score) VALUES (%s,%s,%s,%s)",
+     $query_videojuego_2 = sprintf("INSERT INTO videogame_progress(id_videogame, id_usuario, nivel, score, estrellas) VALUES (%s,%s,%s,%s,%s)",
      GetSQLValueString($conexion, 2,"int"),
      GetSQLValueString($conexion, $idUsuario,"int"),
+     GetSQLValueString($conexion, 0,"int"),
      GetSQLValueString($conexion, 0,"int"),
      GetSQLValueString($conexion, 0,"int"));
      $result_videojuego_2 = mysqli_query($conexion, $query_videojuego_2) or die(mysqli_error($conexion));
 
-     $query_videojuego_3 = sprintf("INSERT INTO videogame_progress(id_videogame, id_usuario, nivel, high_score) VALUES (%s,%s,%s,%s)",
+     $query_videojuego_3 = sprintf("INSERT INTO videogame_progress(id_videogame, id_usuario, nivel, score, estrellas) VALUES (%s,%s,%s,%s,%s)",
      GetSQLValueString($conexion, 3,"int"),
      GetSQLValueString($conexion, $idUsuario,"int"),
+     GetSQLValueString($conexion, 0,"int"),
      GetSQLValueString($conexion, 0,"int"),
      GetSQLValueString($conexion, 0,"int"));
      $result_videojuego_3 = mysqli_query($conexion, $query_videojuego_3) or die(mysqli_error($conexion));
 
 
 
+     $query_user_progress_v1 = sprintf("SELECT * FROM videogame_progress VP INNER JOIN cat_videogames CV ON VP.id_videogame = CV.id_videogame WHERE id_usuario = %s AND VP.id_videogame = 1",
+     GetSQLValueString($conexion,$idUsuario, "int"));
+     $result_user_progress_v1 = mysqli_query($conexion, $query_user_progress_v1) or die(mysqli_error($conexion));
+
+     $_SESSION["uprogressv1"] = $row_user_progress_v1 = mysqli_fetch_assoc($result_user_progress_v1);
+
+     $query_user_progress_v2 = sprintf("SELECT * FROM videogame_progress VP INNER JOIN cat_videogames CV ON VP.id_videogame = CV.id_videogame WHERE id_usuario = %s AND VP.id_videogame = 2",
+     GetSQLValueString($conexion,$idUsuario, "int"));
+     $result_user_progress_v2 = mysqli_query($conexion, $query_user_progress_v2) or die(mysqli_error($conexion));
+
+     $_SESSION["uprogressv2"] = $row_user_progress_v2 = mysqli_fetch_assoc($result_user_progress_v2);
+
+     $query_user_progress_v3 = sprintf("SELECT * FROM videogame_progress VP INNER JOIN cat_videogames CV ON VP.id_videogame = CV.id_videogame WHERE id_usuario = %s AND VP.id_videogame = 3",
+     GetSQLValueString($conexion,$idUsuario, "int"));
+     $result_user_progress_v3 = mysqli_query($conexion, $query_user_progress_v3) or die(mysqli_error($conexion));
+
+     $_SESSION["uprogressv3"] = $row_user_progress_v3 = mysqli_fetch_assoc($result_user_progress_v3);
+
      //echo $query_regpago;
-    header("Location:dashboard.php");
+    header("Location:".$url."dashboard/");
   }
  ?>

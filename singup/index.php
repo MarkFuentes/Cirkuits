@@ -171,8 +171,8 @@
 
         </form>
       </div>
-      <div id="btn-login">
-        <button type="button" name="btnLogin" id="btn-log" onclick="register()" class="btn btn-success btn-block"><h4>Register</h4></button>
+      <div id="btn-register">
+        <button type="button" name="btnLogin" id="btn-register" onclick="register()" class="btn btn-success btn-block"><h4>Register</h4></button>
       </div>
       <div class="" id="regLogin">
         <span>Already registred?</span><h3><a href="<?=$url?>singin" class="label label-success">Sign in</a></h3>

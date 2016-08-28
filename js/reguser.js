@@ -19,7 +19,7 @@ function validaText(strValue)
 function validaBirthDate(birthDate)
 {
   var _sanitizer = new Sanitizer(birthDate);
-  var isValid = _sanitizer.sanitize_birth_date("/");
+  var isValid = _sanitizer.sanitize_birth_date("-");
   return isValid;
 }
 function validaForm()

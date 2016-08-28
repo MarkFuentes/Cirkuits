@@ -80,10 +80,13 @@ if(isset($_SESSION["user"]))
    </nav>
    <div class="container-fluid">
      <div class="row">
-       <div class="contenido">
+       <div class="contenido" id="tleaderboard">
+         <br>
+         <h3>Leaderboard</h3>
+         <br>
          <?php if(mysqli_num_rows($result_hscore) > 0) {?>
-          <table>
-           <thead>
+          <table width="100%" style="text-align: center;">
+           <thead style="background-color:#424242; color:#FFF;">
              <th>
                Rank
              </th>
@@ -104,7 +107,7 @@ if(isset($_SESSION["user"]))
                 $result_get_user = mysqli_query($conexion, $query_get_user)or die(mysqli_error($conexion));
                 $r = mysqli_num_rows($result_get_user) > 0 ? mysqli_fetch_assoc($result_get_user) : NULL;
              ?>
-                <tr>
+                <tr style="margin-bottom:5%;">
                 <td>
                   <?=$ranker++;?>
                 </td>

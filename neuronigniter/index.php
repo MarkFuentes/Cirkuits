@@ -1,36 +1,56 @@
 <?php
-  include_once("../util/utilities.php");
-  session_start();
-  $strServerMsg = "";
+include_once("../util/utilities.php");
+include_once("../util/DAO.php");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+session_start();
 
-  if(!isset($_SESSION["user"]))
+$scores = array();
+
+if(isset($_SESSION["user"]))
+{
+  if(isset($_SESSION["user"]["estatus_usuario"]))
   {
-    header("Location:../login.php");
+    if($_SESSION["user"]["estatus_usuario"] == 1)
+    {
+      header("Location:".$url."payment");
+    }
+    else if($_SESSION["user"]["estatus_usuario"] == 2){
+
+    }
+    else {
+      header("location:".$url."singin");
+    }
   }
+}else {
+  header("location:".$url."singin");
+}
  ?>
  <!DOCTYPE html>
- <html lang="en" manifest="offline.appcache">
  <head>
    <meta charset="UTF-8">
-   <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7" />
-   <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
    <title>Neuron Igniter</title>
-   <!-- Standardised web app manifest -->
- 	 <link rel="manifest" href="appmanifest.json" />
-   <link rel="stylesheet" href="../css/bootstrap.css" />
-   <link rel="stylesheet" href="../css/cirkuits.css" />
-   <link rel="stylesheet" href="../css/master.css" />
-   <link rel="stylesheet" href="../css/jquery-ui.css" />
-   <link rel="stylesheet" href="../css/validationEngine.jquery.css" />
+   <link rel="stylesheet" href="<?=$url?>css/bootstrap.css" />
+   <link rel="stylesheet" href="<?=$url?>css/cirkuits.css" />
+   <link rel="stylesheet" href="<?=$url?>css/master.css" />
+   <link rel="stylesheet" href="<?=$url?>css/jquery-ui.css" />
+   <link rel="stylesheet" href="<?=$url;?>css/font-awesome-4.6.3/css/font-awesome.min.css">
+   <link rel="stylesheet" href="<?=$url?>css/validationEngine.jquery.css" />
+   <link rel="stylesheet" href="<?=$url?>neuronigniter/css/site.css" />
+   <link rel="stylesheet" type="text/css" href="<?=$url?>plugins/slick/slick.css"/>
+   <link rel="stylesheet" type="text/css" href="<?=$url?>plugins/slick/slick-theme.css"/>
    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-   <script src="../js/jquery-1.12.3.min.js"></script>
-   <script src="../js/bootstrap.min.js"></script>
-   <script src="../js/jquery-ui.js"></script>
-   <script src="../js/jquery.validationEngine-es.js"></script>
-   <script src="../js/jquery.validationEngine.js"></script>
+   <link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
+
+   <script src="<?=$url?>js/jquery-1.12.3.min.js"></script>
+   <script src="<?=$url?>js/bootstrap.min.js"></script>
+   <script src="<?=$url?>js/jquery-ui.js"></script>
+   <script src="<?=$url?>js/jquery.validationEngine-es.js"></script>
+   <script src="<?=$url?>js/jquery.validationEngine.js"></script>
 
  </head>
  <body>
@@ -46,12 +66,12 @@
        </div>
        <div class="collapse navbar-collapse" id="cirkuitsNavbar">
          <ul class="nav navbar-nav navbar-right">
-           <li><a href="../dashboard.php"><strong>Dashboard</strong></a></li>
-           <li><a href="../infosubscription.php"><strong>Subscription</strong></a></li>
+           <li><a href="<?=$url;?>dashboard"><strong>Dashboard</strong></a></li>
+           <li><a href="<?=$url;?>subscription"><strong>Subscription</strong></a></li>
            <li><a href="#"><strong>Update payment</strong></a></li>
-           <li><a href="../infouser.php?u=<?php echo base64_encode($_SESSION["user"]["nombre_usuario"])?>"> <img src="../img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="32px" style="top:-10px" /> </a></li>
-           <li><a href="../infouser.php?u=<?php echo base64_encode($_SESSION["user"]["nombre_usuario"])?>"><strong><?php echo $_SESSION["user"]["alter_usuario"] ?></strong></a></li>
-           <li><a href="../exit.php"><span class="label label-danger">Log out</span></a></li>
+           <li><a href="<?=$url;?>profile"> <img src="<?=$url;?>img/avatars/person-flat.png" alt="avatar.png" class="img img-rounded" width="32px" style="top:-10px" /> </a></li>
+           <li><a href="<?=$url;?>profile"><strong><?php echo $_SESSION["user"]["alter_usuario"] ?></strong></a></li>
+           <li><a href="<?=$url;?>exit.php"><span class="label label-danger">Log out</span></a></li>
          </ul>
        </div>
      </div>
@@ -60,21 +80,367 @@
      <div class="row">
        <div class="contenido">
          <div class="text-center">
-           <h1>Neuron Igniter</h1>
+           <br>
+           <br>
+           <div id="nIgniterLvlSelector" class="lvlSelector">
+
+
+             <!-- //// NILVEL 1 /// -->
+             <div class="ilvlWrapper">
+               <?php
+                 $str_scores_lvl1 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 1);
+
+                 $rs_scores_lvl1 = mysqli_query($conexion, $str_scores_lvl1);
+
+                 $row_scores_lvl1 = mysqli_num_rows($rs_scores_lvl1) > 0 ? mysqli_fetch_assoc($rs_scores_lvl1) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 1</span>
+               </div>
+               <?php if($row_scores_lvl1 != NULL) { ?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl1["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span>X<?=$row_scores_lvl1["score"]?></span>
+                </div>
+               </div>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapper.png" alt="" />
+               <?php } else {?>
+                 <img src="<?=$url?>neuronigniter/images/lvlWrapperNA.png" alt="" />
+               <?php }?>
+             </div>
+
+
+
+             <!-- ///// NIVEL 2 //// -->
+             <div class="dlvlWrapper">
+               <?php
+                 $str_scores_lvl2 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 2);
+
+                 $rs_scores_lvl2 = mysqli_query($conexion, $str_scores_lvl2);
+
+                 $row_scores_lvl2 = mysqli_num_rows($rs_scores_lvl2) > 0 ? mysqli_fetch_assoc($rs_scores_lvl2) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 2</span>
+               </div>
+               <?php if($row_scores_lvl2 != NULL){ ?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl2["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span>X<?=$row_scores_lvl2["score"]?></span>
+                </div>
+               </div>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapper2.png" alt="" />
+               <?php } else { ?>
+                 <img src="<?=$url?>neuronigniter/images/lvlWrapper2NA.png" alt="" />
+               <?php }?>
+             </div>
+
+
+
+             <!-- //// NIVEL 3 /// -->
+             <div class="ilvlWrapper">
+               <?php
+                 $str_scores_lvl3 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 3);
+
+                 $rs_scores_lvl3 = mysqli_query($conexion, $str_scores_lvl3);
+
+                 $row_scores_lvl3 = mysqli_num_rows($rs_scores_lvl3) > 0 ? mysqli_fetch_assoc($rs_scores_lvl3) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 3</span>
+               </div>
+               <?php if($row_scores_lvl3 != NULL){ ?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl3["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span>X<?=$row_scores_lvl3["score"]?></span>
+                </div>
+               </div>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapper.png" alt="" />
+               <?php } else { ?>
+                 <img src="<?=$url?>neuronigniter/images/lvlWrapperNA.png" alt="" />
+               <?php }?>
+             </div>
+
+
+             <!-- //// NIVEL 4 -->
+             <div class="dlvlWrapper">
+               <?php
+                 $str_scores_lvl4 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 4);
+
+                 $rs_scores_lvl4 = mysqli_query($conexion, $str_scores_lvl4);
+
+                 $row_scores_lvl4 = mysqli_num_rows($rs_scores_lvl4) > 0 ? mysqli_fetch_assoc($rs_scores_lvl4) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 4</span>
+               </div>
+               <?php if($row_scores_lvl4 != NULL ){ ?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl4["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span>X<?=$row_scores_lvl4["score"]?></span>
+                </div>
+               </div>
+              <img src="<?=$url?>neuronigniter/images/lvlWrapper2.png" alt="" />
+              <?php } else {?>
+                <img src="<?=$url?>neuronigniter/images/lvlWrapper2NA.png" alt="" />
+              <?php } ?>
+             </div>
+
+
+
+
+             <!-- /// NIVEL 5 /// -->
+             <div class="ilvlWrapper">
+               <?php
+                 $str_scores_lvl5 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 5);
+
+                 $rs_scores_lvl5 = mysqli_query($conexion, $str_scores_lvl5);
+
+                 $row_scores_lvl5 = mysqli_num_rows($rs_scores_lvl5) > 0 ? mysqli_fetch_assoc($rs_scores_lvl5) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 5</span>
+               </div>
+               <?php if($row_scores_lvl5 != NULL ){?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl5["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span>X<?=$row_scores_lvl5["score"]?></span>
+                </div>
+               </div>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapper.png" alt="" />
+               <?php }else{?>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapperNA.png" alt="" />
+               <?php }?>
+             </div>
+
+
+
+             <!-- //// NIVEL 6 //// -->
+             <div class="dlvlWrapper">
+               <?php
+                 $str_scores_lvl6 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 6);
+
+                 $rs_scores_lvl6 = mysqli_query($conexion, $str_scores_lvl6);
+
+                 $row_scores_lvl6 = mysqli_num_rows($rs_scores_lvl6) > 0 ? mysqli_fetch_assoc($rs_scores_lvl6) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 6</span>
+               </div>
+               <?php if($row_scores_lvl6 != NULL) {?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl6["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span>X<?=$row_scores_lvl6["score"]?></span>
+                </div>
+               </div>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapper2.png" alt="" />
+               <?php } else {?>
+                 <img src="<?=$url?>neuronigniter/images/lvlWrapper2NA.png" alt="" />
+               <?php }?>
+             </div>
+
+
+
+
+             <!-- //// NIVEL 7 /// -->
+             <div class="ilvlWrapper">
+               <?php
+                 $str_scores_lvl7 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 7);
+
+                 $rs_scores_lvl7 = mysqli_query($conexion, $str_scores_lvl7);
+
+                 $row_scores_lvl7 = mysqli_num_rows($rs_scores_lvl7) > 0 ? mysqli_fetch_assoc($rs_scores_lvl7) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 7</span>
+               </div>
+               <?php if($row_scores_lvl7 != NULL){ ?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl7["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span>X<?=$row_scores_lvl7["score"]?></span>
+                </div>
+               </div>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapper.png" alt="" />
+               <?php }else{?>
+                 <img src="<?=$url?>neuronigniter/images/lvlWrapperNA.png" alt="" />
+               <?php }?>
+             </div>
+
+
+
+
+             <!-- //// NIVEL 8 /// -->
+             <div class="dlvlWrapper">
+               <?php
+                 $str_scores_lvl8 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 8);
+
+                 $rs_scores_lvl8 = mysqli_query($conexion, $str_scores_lvl8);
+
+                 $row_scores_lvl8 = mysqli_num_rows($rs_scores_lvl8) > 0 ? mysqli_fetch_assoc($rs_scores_lvl8) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 8</span>
+               </div>
+               <?php if($row_scores_lvl8 != NULL) {?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl8["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl8["score"]?></span>
+                </div>
+               </div>
+              <img src="<?=$url?>neuronigniter/images/lvlWrapper2.png" alt="" />
+              <?php }else{?>
+                <img src="<?=$url?>neuronigniter/images/lvlWrapper2NA.png" alt="" />
+              <?php } ?>
+             </div>
+
+
+
+
+
+             <!-- //// NIVEL 9 //// -->
+             <div class="ilvlWrapper">
+               <?php
+                 $str_scores_lvl9 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 9);
+
+                 $rs_scores_lvl9 = mysqli_query($conexion, $str_scores_lvl9);
+
+                 $row_scores_lvl9 = mysqli_num_rows($rs_scores_lvl9) > 0 ? mysqli_fetch_assoc($rs_scores_lvl9) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 9</span>
+               </div>
+               <?php if($row_scores_lvl9 != NULL) {?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl9["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl9["score"]?></span>
+                </div>
+               </div>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapper.png" alt="" />
+               <?php } else { ?>
+                 <img src="<?=$url?>neuronigniter/images/lvlWrapperNA.png" alt="" />
+               <?php }?>
+             </div>
+
+
+
+
+
+             <!-- //// NIVEL 10 //// -->
+             <div class="dlvlWrapper">
+               <?php
+                 $str_scores_lvl10 = sprintf("SELECT * FROM videogame_progress WHERE id_usuario = %s AND id_videogame = %s AND nivel = %s",
+                 $_SESSION["user"]["id_usuario"],
+                 1,
+                 10);
+
+                 $rs_scores_lvl10 = mysqli_query($conexion, $str_scores_lvl10);
+
+                 $row_scores_lvl10 = mysqli_num_rows($rs_scores_lvl10) > 0 ? mysqli_fetch_assoc($rs_scores_lvl10) : NULL;
+               ?>
+               <div class="lvlTitle">
+                 <span>Level 10</span>
+               </div>
+               <?php if($row_scores_lvl10 != NULL) {?>
+               <div class="lvlSumarry">
+                <div class="starContainer">
+                  <span class="ico"><i class="fa fa-star" aria-hidden="true"></i></span>
+                  <span><?=$row_scores_lvl10["estrellas"]?></span>
+                </div>
+                <div class="scoreContainer">
+                  <span class="ico"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+                  <span>X<?=$row_scores_lvl10["score"]?></span>
+                </div>
+               </div>
+               <img src="<?=$url?>neuronigniter/images/lvlWrapper2.png" alt="" />
+               <?php } else { ?>
+                 <img src="<?=$url?>neuronigniter/images/lvlWrapper2NA.png" alt="" />
+               <?php }?>
+             </div>
+
+
+           </div>
+
+           <!--<div class="arrow-paginator">
+              <ul>
+                  <li class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></i></li>
+                  <li class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+              </ul>
+          </div>-->
+
+
          </div>
-       </div>
-       <div id="c2canvasdiv">
-         <canvas id="c2canvas" width="854" height="480">
-     			<!-- This text is displayed if the visitor's browser does not support HTML5.
-     			You can change it, but it is a good idea to link to a description of a browser
-     			and provide some links to download some popular HTML5-compatible browsers. -->
-     			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
-     			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
-     			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
-     			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
-     			<a href="http://www.apple.com/safari/download/">Apple Safari</a><br/>
-     			<a href="http://www.google.com/chromeframe">Google Chrome Frame for Internet Explorer</a><br/></h1>
-     		</canvas>
        </div>
      </div>
      <div class="row">
@@ -94,53 +460,50 @@
              <br>
            </div>
            <div class="foot-section social" id="social-1">
-             <div class="img-social">
-               <img src="../img/index/twitter.png" alt="Twitter" />
-             </div>
-             <div class="img-social">
-               <img src="../img/index/facebook.png" alt="Facebook" />
-             </div>
-             <div class="img-social">
-               <img src="../img/index/youtube.png" alt="Youtube" />
-             </div>
+             <a href="http://www.twitter.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
+             <a href="http://www.facebook.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
+             <a href="http://www.youtube.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-youtube" aria-hidden="true"></i></span></a>
+             <a href="http://www.instagram.com" target="_blank"><span style="font-size:28pt; color:#FFF;"><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
            </div>
          </div>
        </footer>
      </div>
    </div>
-   <script src="jquery-2.1.1.min.js"></script>
-   <script src="c2runtime.js"></script>
-   <script>
-   // Size the canvas to fill the browser viewport.
-   jQuery(window).resize(function() {
-     cr_sizeCanvas(jQuery(window).width(), jQuery(window).height());
-   });
+   <script type="text/javascript" src="<?=$url?>plugins/slick/slick.min.js"></script>
 
-   // Start the Construct 2 project running on window load.
-   jQuery(document).ready(function ()
-   {
-     // Create new runtime using the c2canvas
-     cr_createRuntime("c2canvas");
-   });
+   <script type="text/javascript">
+   $(document).ready(function(){
+      $('.lvlSelector').slick({
+        arrows:true,
+        adaptiveHeight:true,
+        slidesToShow: 2,
+        initialSlide: 0,
+        responsive: [{
 
-   // Pause and resume on page becoming visible/invisible
-   function onVisibilityChanged() {
-     if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
-       cr_setSuspended(true);
-     else
-       cr_setSuspended(false);
-   };
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              infinite: true
+            }
 
-   document.addEventListener("visibilitychange", onVisibilityChanged, false);
-   document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
-   document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
-   document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
+          }, {
 
-   if (navigator.serviceWorker && navigator.serviceWorker.register)
-   {
-     // Register an empty service worker to trigger web app install banners.
-     navigator.serviceWorker.register("sw.js", { scope: "./" });
-   }
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+            }
+
+          }, {
+
+            breakpoint: 300,
+            settings: "unslick" // destroys slick
+
+          }],
+        speed: 500
+      });
+    });
    </script>
+
+
  </body>
  </html>

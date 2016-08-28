@@ -1,5 +1,6 @@
 <?php
 include_once("../util/utilities.php");
+include_once("../util/DAO.php");
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -13,6 +14,48 @@ if(isset($_SESSION["user"]))
       header("Location:".$url."payment");
     }
     else if($_SESSION["user"]["estatus_usuario"] == 2){
+      $str_pago = sprintf("SELECT * FROM pago where id_usuario = %s ORDER BY fecha DESC",
+      $_SESSION["user"]["id_usuario"]);
+
+      $rs_pago = mysqli_query($conexion, $str_pago);
+
+      $row_pago = mysqli_num_rows($rs_pago) > 0 ? mysqli_fetch_assoc($rs_pago) : NULL;
+
+      $date_year = substr($row_pago["fecha"], 0, 4);
+      $date_month = substr($row_pago["fecha"], 5, 2);
+      $date_day = substr($row_pago["fecha"], 8, 2);
+
+      echo '<br>';
+      echo '<br>';
+      echo '<br>';
+      echo '<br>';
+      echo '<br>';
+
+      var_dump($date_year);
+      var_dump($date_month);
+      var_dump($date_day);
+
+
+
+
+      $dateToday = date("Y-m-d");
+
+      $today_year = substr($dateToday, 0, 4);
+      $today_month = substr($dateToday, 5, 2);
+      $today_day = substr($dateToday, 8, 2);
+
+      var_dump($today_year);
+      var_dump($today_month);
+      var_dump($today_day);
+
+      if($date_year == $today_year)
+      {
+
+      }else {
+        unset($_SESSION["user"]);
+        header("location:".$url."singin");
+      }
+
     }
     else {
       header("location:".$url."singin");

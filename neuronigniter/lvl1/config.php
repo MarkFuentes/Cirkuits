@@ -15,5 +15,7 @@ while(!feof($file))
 {
   echo fgets($file)."|";
 }
+//echo $_SESSION["user"]["id_usuario"];
+echo "1";
 fclose($file);
 ?>
