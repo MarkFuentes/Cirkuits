@@ -80,25 +80,26 @@ $charge = Conekta_Charge::create(array(
 
 
     $query_regplastic = sprintf("INSERT INTO plastic(nombre_tarjeta,ap_tarjeta,
-     numero_tarjeta,mes_tarjeta,anio_tarjeta,cvc_tarjeta) VALUES (%s,%s,%s,%s,%s,%s)",
+     numero_tarjeta,mes_tarjeta,anio_tarjeta,cvc_tarjeta, id_usuario) VALUES (%s,%s,%s,%s,%s,%s,%s)",
      GetSQLValueString($conexion,$nombre, "text"),
      GetSQLValueString($conexion,$apellido, "text"),
      GetSQLValueString($conexion,$numero, "text"),
      GetSQLValueString($conexion,$mes, "text"),
      GetSQLValueString($conexion,$anio, "text"),
-     GetSQLValueString($conexion,$cvc, "text"));
+     GetSQLValueString($conexion,$cvc, "text"),
+     GetSQLValueString($conexion,$idUsuario, "int"));
      $result_regplastic = mysqli_query($conexion, $query_regplastic) or die(mysqli_error($conexion));
      $id_tarjeta = mysqli_insert_id($conexion);
 
 
      $fecha = date("Y-m-d H:i:s");
-     $query_regpago = sprintf("INSERT INTO pago (id_usuario, id_tarjeta, id_tipo, fecha)
+     $query_regpago = sprintf("INSERT INTO pago (id_usuario, id_tarjeta, id_tipo, fecha, id_tipopago)
      VALUES (%s,%s,%s,%s)",
      GetSQLValueString($conexion,$idUsuario,"text"),
      GetSQLValueString($conexion,$id_tarjeta,"text"),
      GetSQLValueString($conexion,$tipo_renta,"text"),
      "'".$fecha."'"
-     );
+     1);
      $result_pago = mysqli_query($conexion, $query_regpago) or die(mysqli_error($conexion));
 
      //Una vez pagado insertamos el progreso en los tres videojuegos, ponemos el nivel uno activo en el primer videojuego y 0 en los otros dos

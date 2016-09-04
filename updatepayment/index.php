@@ -41,7 +41,7 @@ if(isset($_SESSION["user"]))
    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-   <title>SUBSCRIPTION</title>
+   <title>UPDATE PAYMENT</title>
    <link rel="manifest" href="appmanifest.json" />
    <link rel="stylesheet" href="<?=$url;?>css/bootstrap.css" />
    <link rel="stylesheet" href="<?=$url;?>css/cirkuits.css" />
@@ -86,7 +86,7 @@ if(isset($_SESSION["user"]))
        <div class="contenido">
          <div class="text-center">
            <br>
-           <h1>Subscription</h1>
+           <h1>Update payment </h1>
          </div>
        </div>
        <div id="subscription" class="text-center">
@@ -105,9 +105,9 @@ if(isset($_SESSION["user"]))
           <h3>Tarjeta Cr&eacute;dito/Debito</h3>
           <br>
           <?php if($row_pago["id_tipopago"] == 1) {?>
-            <button type="button" name="button" class="btn btn-primary" onclick="$('#updateCreditModal').modal('show');">Cambiar</button>
+            <button type="button" name="button" class="btn btn-primary" id="btn-change-plastic">Cambiar</button>
           <?php }else{ ?>
-            <button type="button" name="button" class="btn btn-primary" onclick="$('#addCreditModal').modal('show');">Añadir</button>
+            <button type="button" name="button" class="btn btn-primary" id="btn-add-plastic">Añadir</button>
           <?php }?>
         </div>
        </div>
@@ -147,15 +147,15 @@ if(isset($_SESSION["user"]))
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="ico-close-change"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Cambiar tarjeta</h4>
           </div>
           <div class="modal-body">
             <?php include($url."util/mod_credit.php");?>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-change">Close</button>
+            <button type="button" class="btn btn-primary" id="btn-save-change">Save changes</button>
           </div>
         </div>
       </div>
@@ -166,20 +166,47 @@ if(isset($_SESSION["user"]))
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="ico-close-add"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Añadir tarjeta</h4>
           </div>
           <div class="modal-body">
             <?php include($url."util/mod_credit.php");?>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-add">Close</button>
+            <button type="button" class="btn btn-primary" id="btn-save-add">Add</button>
           </div>
         </div>
       </div>
     </div>
-
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#btn-change-plastic').click(function () {
+          $('#updateCreditModal').modal('show');
+        });
+        $('#btn-add-plastic').click(function() {
+          $('#addCreditModal').modal('show');
+        });
+        $('#btn-save-change').click(function() {
+          $('#form_update_credit').submit();
+        });
+        $('#btn-save-add').click(function() {
+          $('#form_update_credit').submit();
+        });
+        $('#btn-close-change').click(function(){
+          $('#form_update_credit').validationEngine('hideAll');
+        });
+        $('#btn-close-add').click(function(){
+          $('#form_update_credit').validationEngine('hideAll');
+        });
+        $('#ico-close-change').click(function() {
+          $('#form_update_credit').validationEngine('hideAll');
+        });
+        $('#ico-close-add').click(function() {          
+          $('#form_update_credit').validationEngine('hideAll');
+        });
+      });
+    </script>
 
  </body>
  </html>

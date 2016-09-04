@@ -66,8 +66,131 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
     <div class="row">
       <!-- Content -->
       <div class="content">
-        <div id="header" class="text-center">
+        <div id="header" class="text-center" style="paddig:5%;">
           <h3><strong>How Cirkuits it works</strong></h3>
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+            Cirkuits opens up a revolutionary new world in language learning
+            that works on the basis of neuroplasticity employed on the unconscious
+            level of mental operation, in other words, “deep learning”.
+            This type of learning is described in the groundbreaking Mind Map book
+          </p>
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+              <em>
+              "Every time you have a thought,
+              the biochemical/electromagnetic resistance along the pathway carrying that
+              thought is reduced.
+              It is like trying to clear a path through a forest.
+              The first time is a struggle because you have to fight  your way through the undergrowth.
+              The second time you travel that way will be easier because of the clearing you did on your first journey.
+              The more times you travel that path, the less resistance there will be, until, after many repetitions, you have a wide, smooth track which requires little or no clearing"
+            </em>
+          </p>
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+            Just like the book describes, when you first start using another language, the process seems confusing and difficult, it is necessary to take your time and to go slowly,
+            with enough practice structuring language this way though, we can become proficient.
+            That’s where the Cirkuits method and video game come in.
+          </p>
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+            Language Reflexes
+            Proficient speech production for a language learner requires the ability
+            to take 1-2 decisions per second (sometimes more) and to generate spoken
+            words based on those decisions,
+            every second of speaking represents new linguistic decisions.
+            As spoken communication proceeds, that decision-making process overwhelms the language
+            learner and flawed speaking is the result.
+            There simply isn't enough familiarity with this system to generate proper speech consistently.  For native speakers the process is more intuitive and wholly familiar it’s like driving the streets of the city where they’ve lived all their lives. If you had to drive in a completely new city, however, getting around would be quite different.  Speaking a new language is like that, it takes time to get acquainted with and comfortable with different language routes.
+            Most English learners only get to develop these inner maps <em>partially</em>.
+          </p>
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+            The language reflexes required for proficient speech production are not properly created in traditional language courses,
+            academic literature suggests that several months of total immersion can generate these kinds of abilities but nothing else has come close......until now!
+          </p>
+          <br>
+          <!-- about videogame -->
+          <h3><strong>Cirkuits Tense Master video game</strong></h3>
+
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+            Cirkuits Tense Master is a video game that replicates the decision-making process
+            whenever you speak English and incorporates a critical time element
+            that permits you to automate those decisions.
+            The game uses a voice-recognition interface and, as  you play,
+            it familiarizes and conditions you to use proper English structure.
+            It was first employed in a simpler form back in 2012 in our classrooms
+            and since then has been used thousands of times with our students and improved
+            continuously along the way.
+          </p>
+
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+            Cirkuits Tense Master is a video game that replicates the decision-making process
+            whenever you speak English and incorporates a critical time element
+            that permits you to automate those decisions.
+            The game uses a voice-recognition interface and, as  you play,
+            it familiarizes and conditions you to use proper English structure.
+            It was first employed in a simpler form back in 2012 in our classrooms
+            and since then has been used thousands of times with our students and improved
+            continuously along the way.
+          </p>
+
+          <h3><strong>The first-ever reflex-building language video game</strong></h3>
+
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+            All of our tools and training are directed at long-term
+            retention and competence. The Cirkuits system passes your
+            English through a filtering process that identifies errors you’ve
+            been dragging from the past and helps you to correct them with
+            conditioning exercises.
+            Common errors that the Cirkuits game and program help to correct are:
+            <ul style="text-align:left; padding-left:15%;">
+              <li>
+                forgetting to use auxiliary verbs when using the negative or interrogative forms, for example:
+                <ul>
+                  <li>“I no have time” (incorrect)  which should be, “I don’t have time.”</li>
+                </ul>
+              </li>
+              <li>
+                forgetting to use the subject in their sentences (especially if your native tongue is Romantic)
+                <ul>
+                  <li>“is very good to see you” which should be, “It’s very good to see you”</li>
+                </ul>
+              </li>
+              <li>
+                confusing the pronouns
+                <ul>
+                  <li>
+                    “I know she very well” which should be, “I know her very well”
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+
+          <br>
+          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+            These errors are the reason the Cirkuits games were created,
+            they provide a different kind of solution for communication needs.
+            <br>
+            <br>
+            As you go through the registration and payment steps
+            you will choose the right plan for you, if you are already enrolled in a
+            language learning program,
+            you might opt simply to sign up for our game and multimedia pack,
+            however, if you want to feel the full fire of the Cirkuits program sign up
+            for our Tense Master Training Pack which includes the game and multimedia
+            suite but also permits you 12 hours of  monthly training with our original,
+            performance-intensive training. Spaces are limited for our
+            online classes so we ask for serious inquiries only,
+            check the conditions and requirements here.
+
+          </p>
+
         </div>
           <div class="row">
             <div class="time-line-izq">
@@ -78,14 +201,16 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
               <div class="txt-time-line">
                 <h3><strong>Register</strong></h3>
                 <p>
-                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste reiciendis dolore atque delectus, totam voluptates cum quasi laudantium ab cupiditate quia reprehenderit error itaque deleniti explicabo distinctio odio ipsum earum!</span>
-                  <span>Ad, consequatur, itaque! Quo cumque ex dolores explicabo repellendus id laudantium ut. Dignissimos fuga ipsa, sed velit illum perferendis fugiat numquam temporibus vitae maiores dolores consectetur assumenda, doloremque excepturi quis.</span>
-                  <span>Recusandae quas amet odio animi, accusamus. Sapiente officia ad nostrum voluptas, maxime expedita sunt. Temporibus repudiandae quia explicabo! Unde magnam libero, qui fuga culpa illum quis numquam omnis error laudantium.</span>
+                  <span>Fill out your info and let us know what you consider your proficiency level to be.</span><br>
+                  <span>beginner</span><br>
+                  <span>proficient with 5-10 verbs (in all tenses) </span><br>
+                  <span>proficient with 10-19 verbs (in all tenses)</span><br>
+                  <span>proficient with 20+verbs (in all tenses) </span><br>
                 </p>
               </div>
              </div>
              <div class="img-dotted-left">
-               <img src="<?=$url;?>img/index/dotted.png" alt="Conecta" />
+               <!--img src="<?=$url;?>img/index/dotted.png" alt="Conecta" />-->
              </div>
             </div>
             <div class="row">
@@ -97,14 +222,12 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
               <div class="txt-time-line">
                 <h3><strong>Pay</strong></h3>
                 <p>
-                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste reiciendis dolore atque delectus, totam voluptates cum quasi laudantium ab cupiditate quia reprehenderit error itaque deleniti explicabo distinctio odio ipsum earum!</span>
-                  <span>Ad, consequatur, itaque! Quo cumque ex dolores explicabo repellendus id laudantium ut. Dignissimos fuga ipsa, sed velit illum perferendis fugiat numquam temporibus vitae maiores dolores consectetur assumenda, doloremque excepturi quis.</span>
-                  <span>Recusandae quas amet odio animi, accusamus. Sapiente officia ad nostrum voluptas, maxime expedita sunt. Temporibus repudiandae quia explicabo! Unde magnam libero, qui fuga culpa illum quis numquam omnis error laudantium.</span>
+                  <span>Fill out our secure pay form </span>
                 </p>
               </div>
             </div>
             <div class="img-dotted-right">
-              <img src="<?=$url;?>img/index/dottedl.png" alt="Conecta" />
+              <!--<img src="<?=$url;?>img/index/dottedl.png" alt="Conecta" />-->
             </div>
           </div>
           <div class="row">
@@ -116,14 +239,14 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
               <div class="txt-time-line">
                 <h3><strong>Play</strong></h3>
                 <p>
-                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste reiciendis dolore atque delectus, totam voluptates cum quasi laudantium ab cupiditate quia reprehenderit error itaque deleniti explicabo distinctio odio ipsum earum!</span>
-                  <span>Ad, consequatur, itaque! Quo cumque ex dolores explicabo repellendus id laudantium ut. Dignissimos fuga ipsa, sed velit illum perferendis fugiat numquam temporibus vitae maiores dolores consectetur assumenda, doloremque excepturi quis.</span>
-                  <span>Recusandae quas amet odio animi, accusamus. Sapiente officia ad nostrum voluptas, maxime expedita sunt. Temporibus repudiandae quia explicabo! Unde magnam libero, qui fuga culpa illum quis numquam omnis error laudantium.</span>
+                  <span>Enjoy the most innovative language-learning video games ever! Along with that gain </span><br>
+                  <span>free access to our multimedia suite which comes with exclusive training videos, </span><br>
+                  <span>short films and more! </span>
                 </p>
               </div>
             </div>
             <div class="img-dotted-left">
-              <img src="img/index/dotted.png" alt="Conecta" />
+              <!--<img src="img/index/dotted.png" alt="Conecta" />-->
             </div>
           </div>
           <div class="row">
@@ -135,9 +258,7 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
               <div class="txt-time-line">
                 <h3><strong>Share your achievements</strong></h3>
                 <p>
-                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste reiciendis dolore atque delectus, totam voluptates cum quasi laudantium ab cupiditate quia reprehenderit error itaque deleniti explicabo distinctio odio ipsum earum!</span>
-                  <span>Ad, consequatur, itaque! Quo cumque ex dolores explicabo repellendus id laudantium ut. Dignissimos fuga ipsa, sed velit illum perferendis fugiat numquam temporibus vitae maiores dolores consectetur assumenda, doloremque excepturi quis.</span>
-                  <span>Recusandae quas amet odio animi, accusamus. Sapiente officia ad nostrum voluptas, maxime expedita sunt. Temporibus repudiandae quia explicabo! Unde magnam libero, qui fuga culpa illum quis numquam omnis error laudantium.</span>
+                  <span>Every game compiles all-time and monthly high scores that you can then share with friends. </span>
                 </p>
               </div>
             </div>

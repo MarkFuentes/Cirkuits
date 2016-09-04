@@ -7,6 +7,7 @@ $id_videogame = isset($_POST["id_videogame"]) ? $_POST["id_videogame"] : "NULL";
 $id_usuario   = isset($_POST["id_usuario"]) ? $_POST["id_usuario"]     : "NULL";
 $nivel        = isset($_POST["nivel"]) ? $_POST["nivel"]               : "NULL";
 $score        = isset($_POST["score"]) ? $_POST["score"]               : "NULL";
+$stars        = isset($_POST["estrellas"]) ? $_POST["estrellas"]       : "NULL";
 
 /*$nivel = 1;
 $id_videogame = 1;
@@ -27,8 +28,9 @@ if(iflvlExists($nivel, $id_videogame, $id_usuario))
 
   if($score > $row_past_score["score"]){
 
-    $str_update_level = sprintf("UPDATE videogame_progress SET score = %s WHERE id_videogame = %s AND id_usuario = %s AND nivel = %s",
+    $str_update_level = sprintf("UPDATE videogame_progress SET score = %s, estrellas = %s WHERE id_videogame = %s AND id_usuario = %s AND nivel = %s",
     GetSQLValueString($conexion, $score, "int"),
+    GetSQLValueString($conexion, $stars, "int"),
     GetSQLValueString($conexion, $id_videogame, "int"),
     GetSQLValueString($conexion, $id_usuario, "int"),
     GetSQLValueString($conexion, $nivel, "int"));
