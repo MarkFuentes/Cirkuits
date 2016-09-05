@@ -1,6 +1,6 @@
 <?php
-include_once("../util/utilities.php");
-include_once("../util/DAO.php");
+include_once("../../util/utilities.php");
+include_once("../../util/DAO.php");
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -14,14 +14,6 @@ if(isset($_SESSION["user"]))
       header("Location:".$url."payment");
     }
     else if($_SESSION["user"]["estatus_usuario"] == 2){
-
-      $str_pago = sprintf("SELECT * FROM pago where id_usuario = %s ORDER BY fecha DESC",
-      $_SESSION["user"]["id_usuario"]);
-
-      $rs_pago = mysqli_query($conexion, $str_pago);
-
-      $row_pago = mysqli_num_rows($rs_pago) > 0 ? mysqli_fetch_assoc($rs_pago) : NULL;
-
     }
     else {
       header("location:".$url."singin");
@@ -85,26 +77,13 @@ if(isset($_SESSION["user"]))
          </div>
        </div>
        <div id="subscription" class="text-center">
-         <div id="endDate" class="text-center">
-          <p style="padding-top:30px">
-            <?php if($row_pago["id_tipopago"] == 1) {?>
-              <span style="font-size:18pt;"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
-              &nbsp;Actualmente tienes una tarjeta cr&eacute;dito/debito registrada.
-            <?php }else{ ?>
-              <span style="font-size:18pt;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
-              Actualmente No cuentas con ninguna tienes una tarjeta registrada.
-            <?php }?>
+          <span style="font-size:5em;"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+          <p style="font-size:2em;">
+            Saved successfully!
           </p>
-        </div>
-        <div id="service" class="text-center">
-          <h3>Tarjeta Cr&eacute;dito/Debito</h3>
-          <br>
-          <?php if($row_pago["id_tipopago"] == 1) {?>
-            <button type="button" name="button" class="btn btn-primary" id="btn-change-plastic">Cambiar</button>
-          <?php }else{ ?>
-            <button type="button" name="button" class="btn btn-primary" id="btn-add-plastic">Añadir</button>
-          <?php }?>
-        </div>
+          <p>
+            <a href="<?=$url?>dashboard" class="btn btn-success">Go Back</a>
+          </p>
        </div>
      </div>
      <br>
@@ -136,73 +115,6 @@ if(isset($_SESSION["user"]))
        </footer>
      </div>
    </div>
-
-   <!-- Modal for update -->
-    <div class="modal fade" id="updateCreditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="ico-close-change"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Cambiar tarjeta</h4>
-          </div>
-          <div class="modal-body">
-            <?php include($url."util/mod_credit.php");?>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-change">Close</button>
-            <button type="button" class="btn btn-primary" id="btn-save-change">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal for update -->
-    <div class="modal fade" id="addCreditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="ico-close-add"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Añadir tarjeta</h4>
-          </div>
-          <div class="modal-body">
-            <?php include($url."util/mod_credit.php");?>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-add">Close</button>
-            <button type="button" class="btn btn-primary" id="btn-save-add">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#card-form').validationEngine({scroll:false});
-        $('#btn-change-plastic').click(function () {
-          $('#updateCreditModal').modal('show');
-        });
-        $('#btn-add-plastic').click(function() {
-          $('#addCreditModal').modal('show');
-        });
-        $('#btn-save-change').click(function() {
-          $('#card-form').submit();
-        });
-        $('#btn-save-add').click(function() {
-          $('#card-form').submit();
-        });
-        $('#btn-close-change').click(function(){
-          $('#card-form').validationEngine('hideAll');
-        });
-        $('#btn-close-add').click(function(){
-          $('#card-form').validationEngine('hideAll');
-        });
-        $('#ico-close-change').click(function() {
-          $('#card-form').validationEngine('hideAll');
-        });
-        $('#ico-close-add').click(function() {
-          $('#card-form').validationEngine('hideAll');
-        });
-      });
-    </script>
 
  </body>
  </html>

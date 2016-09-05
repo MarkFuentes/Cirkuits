@@ -67,16 +67,17 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
       <!-- Content -->
       <div class="content">
         <div id="header" class="text-center" style="paddig:5%;">
-          <h3><strong>How Cirkuits it works</strong></h3>
+          <h1><strong>How Cirkuits it works</strong></h1>
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <br>
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
             Cirkuits opens up a revolutionary new world in language learning
             that works on the basis of neuroplasticity employed on the unconscious
             level of mental operation, in other words, “deep learning”.
             This type of learning is described in the groundbreaking Mind Map book
           </p>
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
               <em>
               "Every time you have a thought,
               the biochemical/electromagnetic resistance along the pathway carrying that
@@ -88,13 +89,13 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
             </em>
           </p>
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
             Just like the book describes, when you first start using another language, the process seems confusing and difficult, it is necessary to take your time and to go slowly,
             with enough practice structuring language this way though, we can become proficient.
             That’s where the Cirkuits method and video game come in.
           </p>
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
             Language Reflexes
             Proficient speech production for a language learner requires the ability
             to take 1-2 decisions per second (sometimes more) and to generate spoken
@@ -106,16 +107,18 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
             Most English learners only get to develop these inner maps <em>partially</em>.
           </p>
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
             The language reflexes required for proficient speech production are not properly created in traditional language courses,
             academic literature suggests that several months of total immersion can generate these kinds of abilities but nothing else has come close......until now!
           </p>
           <br>
+          <br>
           <!-- about videogame -->
-          <h3><strong>Cirkuits Tense Master video game</strong></h3>
+          <h1><strong>Cirkuits Tense Master video game</strong></h1>
 
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <br>
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
             Cirkuits Tense Master is a video game that replicates the decision-making process
             whenever you speak English and incorporates a critical time element
             that permits you to automate those decisions.
@@ -127,7 +130,7 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
           </p>
 
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
             Cirkuits Tense Master is a video game that replicates the decision-making process
             whenever you speak English and incorporates a critical time element
             that permits you to automate those decisions.
@@ -137,18 +140,18 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
             and since then has been used thousands of times with our students and improved
             continuously along the way.
           </p>
-
-          <h3><strong>The first-ever reflex-building language video game</strong></h3>
-
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <h1><strong>The first-ever reflex-building language video game</strong></h1>
+          <br>
+          <br>
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
             All of our tools and training are directed at long-term
             retention and competence. The Cirkuits system passes your
             English through a filtering process that identifies errors you’ve
             been dragging from the past and helps you to correct them with
             conditioning exercises.
             Common errors that the Cirkuits game and program help to correct are:
-            <ul style="text-align:left; padding-left:15%;">
+            <ul style="text-align:left; font-size:18pt; padding-left:10%;">
               <li>
                 forgetting to use auxiliary verbs when using the negative or interrogative forms, for example:
                 <ul>
@@ -173,7 +176,7 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
           </p>
 
           <br>
-          <p style="text-align:left; padding-left:5%; padding-right:5%;">
+          <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
             These errors are the reason the Cirkuits games were created,
             they provide a different kind of solution for communication needs.
             <br>
@@ -199,8 +202,8 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
                 <h3 style="color:#00c1d5;"><i class="fa fa-users" aria-hidden="true"></i></h3>
               </div>
               <div class="txt-time-line">
-                <h3><strong>Register</strong></h3>
-                <p>
+                <h2 style="text-align:center;"><strong>Register</strong></h2>
+                <p style="font-size:18pt;">
                   <span>Fill out your info and let us know what you consider your proficiency level to be.</span><br>
                   <span>beginner</span><br>
                   <span>proficient with 5-10 verbs (in all tenses) </span><br>
@@ -220,9 +223,9 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
                 <h3 style="color:#49c5b1;"><i class="fa fa-credit-card" aria-hidden="true"></i></h3>
               </div>
               <div class="txt-time-line">
-                <h3><strong>Pay</strong></h3>
+                <h2 style="text-align:center;"><strong>Pay</strong></h2>
                 <p>
-                  <span>Fill out our secure pay form </span>
+                  <span style="font-size:18pt;">Fill out our secure pay form </span>
                 </p>
               </div>
             </div>
@@ -237,8 +240,8 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
                 <h3><i class="fa fa-gamepad" aria-hidden="true"></i></h3>
               </div>
               <div class="txt-time-line">
-                <h3><strong>Play</strong></h3>
-                <p>
+                <h2 style="text-align:center;"><strong>Play</strong></h2>
+                <p style="font-size:18pt;">
                   <span>Enjoy the most innovative language-learning video games ever! Along with that gain </span><br>
                   <span>free access to our multimedia suite which comes with exclusive training videos, </span><br>
                   <span>short films and more! </span>
@@ -256,8 +259,8 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
                 <h3 style="color:#FFEB3B;"><i class="fa fa-trophy" aria-hidden="true"></i></h3>
               </div>
               <div class="txt-time-line">
-                <h3><strong>Share your achievements</strong></h3>
-                <p>
+                <h2 style="text-align:center;"><strong>Share your achievements</strong></h2>
+                <p style="font-size:18pt;">
                   <span>Every game compiles all-time and monthly high scores that you can then share with friends. </span>
                 </p>
               </div>
@@ -267,12 +270,12 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
     </div>
     <div class="row row-price">
       <div class="text-center">
-        <h3><strong>Pricing</strong></h3>
+        <h1><strong>Pricing</strong></h1>
       </div>
       <div class="price-tag">
         <span><h3>Annual Billing</h3></span>
         <hr>
-        <span><strong>$ <?= $row_pricing["precio"] ?> MXN</strong></span>
+        <span style="font-size:18pt;"><strong>$ <?= $row_pricing["precio"] ?> MXN</strong></span>
         <hr>
         <a href="<?=$url;?>singup" class="buy-btn label label-success">Buy</a>
       </div>
@@ -280,7 +283,7 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
         <?php $row_pricing = mysqli_fetch_assoc($result_pricing); ?>
         <span><h3>Monthly Billing</h3></span>
         <hr>
-        <span><strong>$ <?= $row_pricing["precio"] ?> MXN</strong></span>
+        <span style="font-size:18pt;"><strong>$ <?= $row_pricing["precio"] ?> MXN</strong></span>
         <hr>
         <a href="<?=$url;?>singup" class="buy-btn label label-success">Buy</a>
       </div>

@@ -1,10 +1,10 @@
 <?php
   include_once("../util/utilities.php");
+  require_once("../util/funciones.php");
   header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
   header("Cache-Control: post-check=0, pre-check=0", false);
   header("Pragma: no-cache");
   $strServerMsg = "";
-  $date = date("Y-m-d H:i:s");
   session_start();
   if(isset($_SESSION["user"]))
   {
@@ -12,18 +12,17 @@
   }
   if(isset($_POST["name"]))
   {
-    $name      = strip_tags($_POST["name"], FILTER_SANITIZE_STRING);
-    $lstName   = strip_tags($_POST["lastName"], FILTER_SANITIZE_STRING);
-    $userName  = strip_tags($_POST["userName"], FILTER_SANITIZE_STRING);
-    $password  = strip_tags($_POST["password"], FILTER_SANITIZE_STRING);
-    $email     = strip_tags($_POST["email"], FILTER_SANITIZE_STRING);
-    $birthDate = strip_tags($_POST["birthDate"], FILTER_SANITIZE_STRING);
+    $name      = !empty($_POST["name"]) ? GetSQLValueString($conexion, $_POST["name"], "text") : "NULL";
+    $lstName   = !empty($_POST["lastName"]) ? GetSQLValueString($conexion, $_POST["lastName"], "text") : "NULL";
+    $userName  = !empty($_POST["userName"]) ? GetSQLValueString($conexion, $_POST["userName"], "text") : "NULL";
+    $password  = !empty($_POST["password"]) ? GetSQLValueString($conexion, $_POST["password"], "text") : "NULL";
+    $email     = !empty($_POST["email"]) ? GetSQLValueString($conexion, $_POST["email"], "text") : "NULL";
+    $birthDate = !empty($_POST["birthDate"]) ? GetSQLValueString($conexion, $_POST["birthDate"], "html") : "NULL";
 
     if(check_user($userName) <= 0)
     {
-      $result = insert_user($name, $lstName, $userName, $password, $email, $birthDate, 1, $date);
+      $result = insert_user($name, $lstName, $userName, $password, $email, $birthDate, 1);
       $id_usuario = mysqli_insert_id($conexion);
-      //write_console($result);
       if($result > 0)
       {
         session_start();
@@ -97,7 +96,7 @@
           <div class="form form-group">
             <!--<label>Name</label>-->
             <input type="text" class="form-control"
-            data-validation-engine="validate[required, custom[onlyLetterSp]]"
+            data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
             data-errormessage-value-missing="Name is required"
             data-errormessage-custom-error="Invalid, let me give you a hint: Andrew"
             name="name" id="name" placeholder="Name" />
@@ -105,7 +104,7 @@
           <div class="form form-group">
             <!--<label>Last name</label>-->
             <input type="text" class="form-control"
-            data-validation-engine="validate[required, custom[onlyLetterSp]]"
+            data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
             data-errormessage-value-missing="Last name is required"
             data-errormessage-custom-error="Invalid, let me give you a hint: Garfield"
             name="lastName" id="lastName" placeholder="Last name" />

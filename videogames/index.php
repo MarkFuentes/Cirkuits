@@ -60,7 +60,8 @@ if(isset($_SESSION["user"]))
           <img src="<?=$url;?>img/index/videogame1.jpg" alt="Videogame 1" />
         </div>
         <div class="txt-wrapper">
-          <p>
+          <br>
+          <p style="font-size:16pt;">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -76,7 +77,8 @@ if(isset($_SESSION["user"]))
           <img src="<?=$url;?>img/index/videogame2.jpg" alt="Videogame 4" />
         </div>
         <div class="txt-wrapper">
-          <p>
+          <br>
+          <p style="font-size:16pt;">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -92,7 +94,8 @@ if(isset($_SESSION["user"]))
           <img src="<?=$url;?>img/index/videogame3.jpg" alt="Videogame 3" />
         </div>
         <div class="txt-wrapper">
-          <p>
+          <br>
+          <p style="font-size:16pt;">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip

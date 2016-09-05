@@ -74,14 +74,14 @@
             <div class="form form-group">
               <input type="text" class="form-control"
                data-conekta="card[name]"
-               data-validation-engine="validate[required, custom[onlyLetterSp]]"
+               data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
                data-errormessage-value-missing="Name is required"
                data-errormessage-custom-error="Invalid, let me give you a hint: Andrew"
                name="name" id="name" placeholder="Name"/>
             </div>
             <div class="form form-group">
               <input type="text" class="form-control" name="lastName" id="lastName"
-               data-validation-engine="validate[required, custom[onlyLetterSp]]"
+               data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
                data-errormessage-value-missing="Last name is required"
                data-errormessage-custom-error="Invalid, let me give you a hint: Garfield"
                placeholder="Last name" />
@@ -169,6 +169,9 @@
 
    $(document).ready( function(){
       $('#card-form').validationEngine();
+      $('#btn-cancel-payment').click(function() {
+        window.location.href="../exit.php";
+      });
     } );
 
 

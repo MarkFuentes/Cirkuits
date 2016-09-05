@@ -1,17 +1,17 @@
 <div class="form">
-  <form action="processpayment.php" method="post" id="card-form">
+  <form action="update_plastic.php" method="post" id="card-form">
     <span class="card-errors"></span>
     <div class="form form-group">
       <input type="text" class="form-control"
        data-conekta="card[name]"
-       data-validation-engine="validate[required, custom[onlyLetterSp]]"
+       data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
        data-errormessage-value-missing="Name is required"
        data-errormessage-custom-error="Invalid, let me give you a hint: Andrew"
        name="name" id="name" placeholder="Name"/>
     </div>
     <div class="form form-group">
       <input type="text" class="form-control" name="lastName" id="lastName"
-       data-validation-engine="validate[required, custom[onlyLetterSp]]"
+       data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
        data-errormessage-value-missing="Last name is required"
        data-errormessage-custom-error="Invalid, let me give you a hint: Garfield"
        placeholder="Last name" />
@@ -45,14 +45,6 @@
        data-errormessage-value-missing="cvc is required"
        data-errormessage-custom-error="Invalid, let me give you a hint: 000"
        placeholder="cvc" />
-    </div>
-    <div class="form form-group">
-      <select type="text" class="form-control" name="tipoSubscripcion" id="tipoSubscripcion"
-       data-validation-engine="validate[required]"
-       data-errormessage-value-missing="Please select a subscription">
-       <option value="1">Monthly</option>
-       <option value="2">Annual</option>
-     </select>
     </div>
     <br>
   </form>

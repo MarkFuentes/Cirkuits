@@ -58,17 +58,17 @@ if(isset($_SESSION["user"]))
         <img src="<?=$url;?>img/logo_alone.png" alt="Cirkuits" class="img-circle"/>
         <br>
         <div class="text-about text-center">
-          <h3><strong>About us</strong></h3>
-
-          <p>
+          <h1><strong>About us</strong></h1>
+          <br>
+          <p style="font-size:18pt;">
             Cirkuits is a team that offers the most comprehensive language development program ever.
             We have been working for years to generate the best results possible in our classrooms and now we have a sleek and brilliant online platform that will permit
             the entire world to benefit from this experience with our cutting-edge tools and program.
           </p>
-
-          <h3><strong>Cirkuits Program</strong></h3>
-
-          <p>
+          <br>
+          <h1><strong>Cirkuits Program</strong></h1>
+          <br>
+          <p style="font-size:18pt;">
             We  provide several video games that will allow you the type of
             familiarity with English that will produce proper and
             consistent oral expression.
@@ -90,10 +90,10 @@ if(isset($_SESSION["user"]))
             into numbers (eg. correct sentences vs. incorrect sentences) and allow you to analyze your
             efforts in every session.
           </p>
-
-          <h3><strong>Vision </strong></h3>
-
-          <p>
+          <br>
+          <h1><strong>Vision </strong></h1>
+          <br>
+          <p style="font-size:18pt;">
             To become the global-standard in the language-learning sector by
              charting the course for the first unconscious-competence training model.
             <br>
@@ -105,17 +105,17 @@ if(isset($_SESSION["user"]))
 
           </p>
 
-
-          <h3><strong>Mission</strong></h3>
-
-          <p>
+          <br>
+          <h1><strong>Mission</strong></h1>
+          <br>
+          <p style="font-size:18pt;">
             To provide our students with the most forward-thinking tools to help them
             learn a language as quickly as possible for as long as possible.
           </p>
-
-          <h3><strong>Values</strong></h3>
-
-          <p>
+          <br>
+          <h1><strong>Values</strong></h1>
+          <br>
+          <p style="font-size:18pt;">
             When taking a decision within the company we always ask “does this help accelerate and improve the students’ end result?
           </p>
 

@@ -80,13 +80,14 @@ $charge = Conekta_Charge::create(array(
 
 
     $query_regplastic = sprintf("INSERT INTO plastic(nombre_tarjeta,ap_tarjeta,
-     numero_tarjeta,mes_tarjeta,anio_tarjeta,cvc_tarjeta, id_usuario) VALUES (%s,%s,%s,%s,%s,%s,%s)",
+     numero_tarjeta,mes_tarjeta,anio_tarjeta,cvc_tarjeta, estatus, id_usuario) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",
      GetSQLValueString($conexion,$nombre, "text"),
      GetSQLValueString($conexion,$apellido, "text"),
      GetSQLValueString($conexion,$numero, "text"),
      GetSQLValueString($conexion,$mes, "text"),
      GetSQLValueString($conexion,$anio, "text"),
      GetSQLValueString($conexion,$cvc, "text"),
+     1,
      GetSQLValueString($conexion,$idUsuario, "int"));
      $result_regplastic = mysqli_query($conexion, $query_regplastic) or die(mysqli_error($conexion));
      $id_tarjeta = mysqli_insert_id($conexion);
@@ -94,11 +95,11 @@ $charge = Conekta_Charge::create(array(
 
      $fecha = date("Y-m-d H:i:s");
      $query_regpago = sprintf("INSERT INTO pago (id_usuario, id_tarjeta, id_tipo, fecha, id_tipopago)
-     VALUES (%s,%s,%s,%s)",
+     VALUES (%s,%s,%s,%s,%s )",
      GetSQLValueString($conexion,$idUsuario,"text"),
      GetSQLValueString($conexion,$id_tarjeta,"text"),
      GetSQLValueString($conexion,$tipo_renta,"text"),
-     "'".$fecha."'"
+     "'".$fecha."'",
      1);
      $result_pago = mysqli_query($conexion, $query_regpago) or die(mysqli_error($conexion));
 
