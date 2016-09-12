@@ -118,7 +118,7 @@ else {
             Please check your username or password.
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-add">Close</button>            
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-add">Close</button>
           </div>
         </div>
       </div>
@@ -132,31 +132,34 @@ else {
            <br>
            <h1>Sign in</h1>
          </div>
-         <div class="form">
-           <form action="" method="post" id="login_form">
-             <div class="form form-group">
-               <input type="email" class="form-control" name="email" id="email"
-               data-validation-engine="validate[required, custom[email]]"
-               data-errormessage-value-missing="email is required"
-               data-errormessage-custom-error="Invalid, let me give you a hint: someone@nowhere.com"
-               placeholder="e-mail" />
+         <br>
+         <div class="form-wrapper">
+             <div class="form">
+               <form action="" method="post" id="login_form">
+                 <div class="form form-group">
+                   <input type="email" class="form-control" name="email" id="email"
+                   data-validation-engine="validate[required, custom[email]]"
+                   data-errormessage-value-missing="email is required"
+                   data-errormessage-custom-error="Invalid, let me give you a hint: someone@nowhere.com"
+                   placeholder="e-mail" />
+                 </div>
+                 <div class="form form-group">
+                   <input type="password" class="form-control" name="password" id="passowrd"
+                   data-validation-engine="validate[required]"
+                   data-validation-engine="validate[required, custom[email]]"
+                   data-errormessage-value-missing="password is required"
+                   placeholder="password" />
+                 </div>
+                 <!--<input type="submit" name="submit" value="Sign" class="btn btn-success btn-lg">
+                 <br>
+                 <div class="" id="regLogin">
+                   <span>Not registred yet?</span><h3><a href="reguser.php" class="label label-success">Sign up</a></h3>
+                 </div>-->
+               </form>
              </div>
-             <div class="form form-group">
-               <input type="password" class="form-control" name="password" id="passowrd"
-               data-validation-engine="validate[required]"
-               data-validation-engine="validate[required, custom[email]]"
-               data-errormessage-value-missing="password is required"
-               placeholder="password" />
+             <div id="btn-login">
+               <button type="button" name="btnLogin" id="btn-log" onclick="login()" class="btn btn-success btn-block"><h4>Sign In</h4></button>
              </div>
-             <!--<input type="submit" name="submit" value="Sign" class="btn btn-success btn-lg">
-             <br>
-             <div class="" id="regLogin">
-               <span>Not registred yet?</span><h3><a href="reguser.php" class="label label-success">Sign up</a></h3>
-             </div>-->
-           </form>
-         </div>
-         <div id="btn-login">
-           <button type="button" name="btnLogin" id="btn-log" onclick="login()" class="btn btn-success btn-block"><h4>Sign In</h4></button>
          </div>
          <div id="regLogin">
            <span>Not registred yet?</span><h3><a href="<?=$url?>singup" class="label label-success">Sign up</a></h3>

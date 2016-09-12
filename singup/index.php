@@ -91,87 +91,90 @@
           <h1>Sign up</h1>
         </div>
       </div>
-      <div class="form">
-        <form action="" method="post" id="reguser_form" onsubmit="return validaForm()">
-          <div class="form form-group">
-            <!--<label>Name</label>-->
-            <input type="text" class="form-control"
-            data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
-            data-errormessage-value-missing="Name is required"
-            data-errormessage-custom-error="Invalid, let me give you a hint: Andrew"
-            name="name" id="name" placeholder="Name" />
-          </div>
-          <div class="form form-group">
-            <!--<label>Last name</label>-->
-            <input type="text" class="form-control"
-            data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
-            data-errormessage-value-missing="Last name is required"
-            data-errormessage-custom-error="Invalid, let me give you a hint: Garfield"
-            name="lastName" id="lastName" placeholder="Last name" />
-          </div>
-          <div class="form form-group">
-            <!--<label>User name</label>-->
-            <input type="text" class="form-control" name="userName" id="userName"
-            data-validation-engine="validate[required, , custom[onlyLetterNumber]]"
-            data-errormessage-value-missing="User name is required"
-            data-errormessage-custom-error="Invalid, let me give you a hint: Awwwgarfiel"
-            placeholder="User name" onblur="verify_user()"
-            data-toggle="popover" title="Warning"
-            data-placement="right"
-            data-content="Username already exists" />
-          </div>
-          <div class="form form-group">
-            <!--<label>password</label>-->
-            <input type="password" class="form-control" name="password" id="password"
-            data-validation-engine="validate[required]"
-            data-errormessage-value-missing="Password is required"
-            placeholder="password" />
-          </div>
-          <div class="form form-group">
-            <!--<label>E-mail</label>-->
-            <input type="email" class="form-control"
-            data-validation-engine="validate[required,custom[email]]"
-            data-errormessage-value-missing="Email is required"
-            data-errormessage-custom-error="Invalid, let me give you a hint: someone@nowhere.com"
-            name="email" id="email" placeholder="E-mail"
-            data-toggle="popover" title="Warning"
-            data-placement="right"
-            data-content="Email already in use"
-            onblur="verify_email()"
-             />
-          </div>
-          <div class="form form-group">
-            <!--<label>Confirm e-mail</label>-->
-            <input type="text" class="form-control" name="conEmail" id="conEmail"
-            data-validation-engine="validate[required,custom[email]]"
-            data-errormessage-value-missing="Email is required"
-            placeholder="Confirm E-mail" />
-          </div>
-          <div class="form form-group">
-            <!--<label>Birth Date</label>-->
-            <input type="text" class="form-control datepicker"
-            data-validation-engine="validate[required]"
-            data-errormessage-value-missing="Birth date is required"
-            data-errormessage-custom-error="Invalid, let me give you a hint: 1992-10-21"
-            placeholder="Birthdate" name="birthDate" id="birthDate" />
-          </div>
-          <div class="checkbox">
-            <!--<label>Confirm e-mail</label>-->
-            <label>
-              <input type="checkbox"  name="terms"
+      <br>
+      <div class="form-wrapper">
+        <div class="form">
+          <form action="" method="post" id="reguser_form" onsubmit="return validaForm()">
+            <div class="form form-group">
+              <!--<label>Name</label>-->
+              <input type="text" class="form-control"
+              data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
+              data-errormessage-value-missing="Name is required"
+              data-errormessage-custom-error="Invalid, let me give you a hint: Andrew"
+              name="name" id="name" placeholder="Name" />
+            </div>
+            <div class="form form-group">
+              <!--<label>Last name</label>-->
+              <input type="text" class="form-control"
+              data-validation-engine="validate[required, custom[onlyLetterAccentSp]]"
+              data-errormessage-value-missing="Last name is required"
+              data-errormessage-custom-error="Invalid, let me give you a hint: Garfield"
+              name="lastName" id="lastName" placeholder="Last name" />
+            </div>
+            <div class="form form-group">
+              <!--<label>User name</label>-->
+              <input type="text" class="form-control" name="userName" id="userName"
+              data-validation-engine="validate[required, , custom[onlyLetterNumber]]"
+              data-errormessage-value-missing="User name is required"
+              data-errormessage-custom-error="Invalid, let me give you a hint: Awwwgarfiel"
+              placeholder="User name" onblur="verify_user()"
+              data-toggle="popover" title="Warning"
+              data-placement="right"
+              data-content="Username already exists" />
+            </div>
+            <div class="form form-group">
+              <!--<label>password</label>-->
+              <input type="password" class="form-control" name="password" id="password"
               data-validation-engine="validate[required]"
-              data-errormessage-value-missing="You must accept terms and conditions"
-              id="terms" value="1" />
-              I accept terms and conditions.
-            </label>
-          </div>
+              data-errormessage-value-missing="Password is required"
+              placeholder="password" />
+            </div>
+            <div class="form form-group">
+              <!--<label>E-mail</label>-->
+              <input type="email" class="form-control"
+              data-validation-engine="validate[required,custom[email]]"
+              data-errormessage-value-missing="Email is required"
+              data-errormessage-custom-error="Invalid, let me give you a hint: someone@nowhere.com"
+              name="email" id="email" placeholder="E-mail"
+              data-toggle="popover" title="Warning"
+              data-placement="right"
+              data-content="Email already in use"
+              onblur="verify_email()"
+               />
+            </div>
+            <div class="form form-group">
+              <!--<label>Confirm e-mail</label>-->
+              <input type="text" class="form-control" name="conEmail" id="conEmail"
+              data-validation-engine="validate[required,custom[email]]"
+              data-errormessage-value-missing="Email is required"
+              placeholder="Confirm E-mail" />
+            </div>
+            <div class="form form-group">
+              <!--<label>Birth Date</label>-->
+              <input type="text" class="form-control datepicker"
+              data-validation-engine="validate[required]"
+              data-errormessage-value-missing="Birth date is required"
+              data-errormessage-custom-error="Invalid, let me give you a hint: 1992-10-21"
+              placeholder="Birthdate" name="birthDate" id="birthDate" />
+            </div>
+            <div class="checkbox">
+              <!--<label>Confirm e-mail</label>-->
+              <label>
+                <input type="checkbox"  name="terms"
+                data-validation-engine="validate[required]"
+                data-errormessage-value-missing="You must accept terms and conditions"
+                id="terms" value="1" />
+                I accept terms and conditions.
+              </label>
+            </div>
 
-          <br>
+            <br>
 
-        </form>
-      </div>
-      <div id="btn-register">
-        <button type="button" name="btnLogin" id="btn-register" onclick="register()" class="btn btn-success btn-block"><h4>Register</h4></button>
+          </form>
+        </div>
+        <div id="btn-register">
+          <button type="button" name="btnLogin" id="btn-register" onclick="register()" class="btn btn-success"><h4>Register</h4></button>
+        </div>
       </div>
       <div class="" id="regLogin">
         <span>Already registred?</span><h3><a href="<?=$url?>singin" class="label label-success">Sign in</a></h3>

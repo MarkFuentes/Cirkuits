@@ -1,3 +1,8 @@
+p {
+  color: #808080 !important;
+}
+
+
 .contenido
 {
   position: relative;
@@ -11,31 +16,7 @@
   position: relative;
   margin: auto;
   padding: 2%;
-  width: 80%;
-  max-width: 85%;
-  min-width: 60%;
-  text-align: center;
-}
-
-#btn-login
-{
-  position: relative;
-  margin: auto;
-  padding: 0px;
-  width: 50%;
-  max-width: 85%;
-  min-width: 60%;
-  text-align: center;
-}
-
-#btn-register
-{
-  position: relative;
-  margin: auto;
-  padding: 0px;
-  width: 75%;
-  max-width: 85%;
-  min-width: 60%;
+  width: 100%;
   text-align: center;
 }
 
@@ -126,10 +107,6 @@
   padding: auto;
 }
 
-.form
-{
-
-}
 #menu-neuroni
 {
   background-color: red;
@@ -228,15 +205,6 @@
     position: relative;
     margin: auto;
     padding: 2%;
-    width: 100%;
-    text-align: center;
-  }
-
-  #btn-login
-  {
-    position: relative;
-    margin: auto;
-    padding: 0px;
     width: 100%;
     text-align: center;
   }

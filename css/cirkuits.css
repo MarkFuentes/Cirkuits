@@ -1,7 +1,14 @@
 body
 {
   font-family: 'Comfortaa', cursive;
+  color: #989292;
+  background-color: #EEEEEE;
 }
+
+h1, h2, h3 {
+  color: #585757;
+}
+
 .contenido-singin
 {
   position: relative;
@@ -69,8 +76,9 @@ body
   padding: 2%;
   height: auto;
   float: left;
-  border: 1px solid #EEE;
-  border-radius: 0px 15px 0px 15px;
+  border: 1px solid #f9f7f7;
+  background-color: #FFF;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 .img-dotted-left
 {
@@ -91,8 +99,9 @@ body
   padding: 5%;
   height: auto;
   float: right;
-  border: 1px solid #EEE;
-  border-radius: 0px 15px 0px 15px;
+  border: 1px solid #f9f7f7;
+  background-color: #FFF;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 .txt-time-line
 {
@@ -125,8 +134,10 @@ body
   text-align: center;
   float: left;
   border: 1px solid #cdc8b1;
-  border-radius: 5px;
   text-decoration: none;
+  border: 1px solid #f9f7f7;
+  background-color: #FFF;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 .buy-btn
 {
@@ -211,7 +222,8 @@ body
   padding: 1%;
   float: left;
   border: 1px solid #EEEEEE;
-  border-radius: 5px;
+  background-color: #FFF;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 
 .thumb-nail
@@ -257,7 +269,7 @@ body
 
 .game-preview-msg
 {
-  position: absolute;
+  position: relative;
   width: 50%;
   top:20%;
   left: 22%;
@@ -283,6 +295,38 @@ body
 {
   position: relative;
   width: 100%;
+}
+
+.form-wrapper {
+  background-color: #FFF;
+  width: 40%;
+  margin: auto;
+  padding: 2%;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+#login_form {
+  position: relative;
+  width: 100%;
+}
+
+#btn-login
+{
+  position: relative;
+  margin: auto;
+  padding: 0px;
+  width: 30%;
+  text-align: center;
+}
+
+#btn-register
+{
+  position: relative;
+  margin: auto;
+  padding: 0px;
+  width: 40%;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px)
@@ -323,7 +367,7 @@ body
   }
   .game-preview-msg
   {
-    position: absolute;
+    position: relative;;
     width: 50%;
     top:45%;
     left: 25%;
@@ -335,6 +379,20 @@ body
     position: relative;
     width: 80%;
     margin: auto;
+  }
+
+  .form-wrapper {
+    background-color: #FFF;
+    width: 90%;
+    margin: auto;
+    padding: 2%;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  #login_form {
+    position: relative;
+    width: 100%;
   }
 }
 
@@ -377,9 +435,10 @@ body
   .time-line-izq
   {
     position: relative;
-    width: 100%;
-    margin-left: 2%;
-    margin-right: 0%;
+    width: 80%;
+    margin-left:10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
     height: auto;
     border: 0px;
     float: right;
@@ -388,9 +447,10 @@ body
   .time-line-der
   {
     position: relative;
-    width: 100%;
-    margin-left: 2%;
-    margin-right: 0%;
+    width: 80%;
+    margin-left:10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
     height: auto;
     border: 0px;
   }
@@ -516,7 +576,7 @@ body
   }
   .game-preview-msg
   {
-    position: absolute;
+    position: relative;
     width: 50%;
     top:40%;
     left: 25%;
@@ -528,6 +588,38 @@ body
     position: relative;
     width: 80%;
     margin: auto;
+  }
+
+  .form-wrapper {
+    background-color: #FFF;
+    width: 90%;
+    margin: auto;
+    padding: 2%;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  #login_form {
+    position: relative;
+    width: 100%;
+  }
+
+  #btn-login
+  {
+    position: relative;
+    margin: auto;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #btn-register
+  {
+    position: relative;
+    margin: auto;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -570,9 +662,10 @@ body
   .time-line-izq
   {
     position: relative;
-    width: 100%;
-    margin-left: 2%;
-    margin-right: 0%;
+    width: 80%;
+    margin-left:10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
     height: auto;
     border: 0px;
     float: right;
@@ -581,9 +674,10 @@ body
   .time-line-der
   {
     position: relative;
-    width: 100%;
-    margin-left: 2%;
-    margin-right: 0%;
+    width: 80%;
+    margin-left:10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
     height: auto;
     border: 0px;
   }
@@ -697,7 +791,7 @@ body
   }
   .game-preview-msg
   {
-    position: absolute;
+    position: relative;
     width: 50%;
     top:20%;
     left: 25%;
@@ -709,5 +803,37 @@ body
     position: relative;
     width: 80%;
     margin: auto;
+  }
+
+  .form-wrapper {
+    background-color: #FFF;
+    width: 95%;
+    margin: auto;
+    padding: 2%;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  #login_form {
+    position: relative;
+    width: 100%;
+  }
+
+  #btn-login
+  {
+    position: relative;
+    margin: auto;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #btn-register
+  {
+    position: relative;
+    margin: auto;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
   }
 }

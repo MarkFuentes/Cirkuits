@@ -16,10 +16,12 @@ if(isset($_SESSION["user"]))
   <title>Cirkuits</title>
   <link rel="stylesheet" href="<?=$url;?>css/bootstrap.css" />
   <link rel="stylesheet" href="<?=$url;?>css/cirkuits.css" />
+  <link rel="stylesheet" href="<?=$url;?>css/jquery-ui.css" />
   <link rel="stylesheet" href="<?=$url;?>css/font-awesome-4.6.3/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet"> <!-- For banner propouses only -->
   <script src="<?=$url;?>js/jquery-1.12.3.min.js"></script>
+  <script src="<?=$url;?>js/jquery-ui.js"></script>
   <script src="<?=$url;?>js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -57,68 +59,66 @@ if(isset($_SESSION["user"]))
       <div class="center">
         <img src="<?=$url;?>img/logo_alone.png" alt="Cirkuits" class="img-circle"/>
         <br>
-        <div class="text-about text-center">
+        <div class="text-about text-center" id="acordeon">
           <h1><strong>About us</strong></h1>
-          <br>
-          <p style="font-size:18pt;">
-            Cirkuits is a team that offers the most comprehensive language development program ever.
-            We have been working for years to generate the best results possible in our classrooms and now we have a sleek and brilliant online platform that will permit
-            the entire world to benefit from this experience with our cutting-edge tools and program.
-          </p>
-          <br>
+          <div>
+            <p style="font-size:18pt;">
+              Cirkuits is a team that offers the most comprehensive language development program ever.
+              We have been working for years to generate the best results possible in our classrooms and now we have a sleek and brilliant online platform that will permit
+              the entire world to benefit from this experience with our cutting-edge tools and program.
+            </p>
+          </div>
           <h1><strong>Cirkuits Program</strong></h1>
-          <br>
-          <p style="font-size:18pt;">
-            We  provide several video games that will allow you the type of
-            familiarity with English that will produce proper and
-            consistent oral expression.
-            They make for great tools alongside any English learning program, however,
-            if paired with our Cirkuits online classroom training,
-            we can offer you results no one even comes close to.
-            Find out more on our Cirkuits tab. Forget ambiguous levels!
-            We do away with the traditional basic,  intermediate,
-            advanced structure.
-            The Cirkuits Program focuses on the English tenses themselves as the basis
-            for advancement. You start with the most used English tense: the simple present,
-            then you move on to the simple past followed by the present perfect.
-            The simple, continuous and perfect tenses comprise the Cirkuits International
-            Business program. Once 90% of your spoken sentences are correctly structured in
-            the Simple Present tense then you advance to the Simple past and repeat the process until you have mastered each level.
-            Mastery of each tense requires from 1-3 months depending on your existing level of
-            development. Once you finish the Cirkuits Program you will have the language
-            skills to be able to work in any English-speaking country. We turn your spoken production
-            into numbers (eg. correct sentences vs. incorrect sentences) and allow you to analyze your
-            efforts in every session.
-          </p>
-          <br>
+          <div>
+            <p style="font-size:18pt;">
+              We  provide several video games that will allow you the type of
+              familiarity with English that will produce proper and
+              consistent oral expression.
+              They make for great tools alongside any English learning program, however,
+              if paired with our Cirkuits online classroom training,
+              we can offer you results no one even comes close to.
+              Find out more on our Cirkuits tab. Forget ambiguous levels!
+              We do away with the traditional basic,  intermediate,
+              advanced structure.
+              The Cirkuits Program focuses on the English tenses themselves as the basis
+              for advancement. You start with the most used English tense: the simple present,
+              then you move on to the simple past followed by the present perfect.
+              The simple, continuous and perfect tenses comprise the Cirkuits International
+              Business program. Once 90% of your spoken sentences are correctly structured in
+              the Simple Present tense then you advance to the Simple past and repeat the process until you have mastered each level.
+              Mastery of each tense requires from 1-3 months depending on your existing level of
+              development. Once you finish the Cirkuits Program you will have the language
+              skills to be able to work in any English-speaking country. We turn your spoken production
+              into numbers (eg. correct sentences vs. incorrect sentences) and allow you to analyze your
+              efforts in every session.
+            </p>
+          </div>
           <h1><strong>Vision </strong></h1>
-          <br>
-          <p style="font-size:18pt;">
-            To become the global-standard in the language-learning sector by
-             charting the course for the first unconscious-competence training model.
-            <br>
-            <strong>What is unconscious competence?</strong>
-            <br>
-            Unconscious competence involves the ability to do something without needing
-            to think about it. Any speech pattern can be internalized and automated;
-            we achieve this at Cirkuits with a structured series of games and activities
-
-          </p>
-
-          <br>
+          <div>
+            <p style="font-size:18pt;">
+              To become the global-standard in the language-learning sector by
+               charting the course for the first unconscious-competence training model.
+              <br>
+              <strong>What is unconscious competence?</strong>
+              <br>
+              Unconscious competence involves the ability to do something without needing
+              to think about it. Any speech pattern can be internalized and automated;
+              we achieve this at Cirkuits with a structured series of games and activities
+            </p>
+          </div>
           <h1><strong>Mission</strong></h1>
-          <br>
+          <div>
           <p style="font-size:18pt;">
             To provide our students with the most forward-thinking tools to help them
             learn a language as quickly as possible for as long as possible.
           </p>
-          <br>
+        </div>
           <h1><strong>Values</strong></h1>
-          <br>
-          <p style="font-size:18pt;">
-            When taking a decision within the company we always ask “does this help accelerate and improve the students’ end result?
-          </p>
-
+          <div>
+            <p style="font-size:18pt;">
+              When taking a decision within the company we always ask “does this help accelerate and improve the students’ end result?
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -150,7 +150,11 @@ if(isset($_SESSION["user"]))
     </div>
   </div>
   <script type="text/javascript">
-
+    $(document).ready(function() {
+      $( "#acordeon" ).accordion({
+        collapsible: true
+      });
+    });
   </script>
 </body>
 </html>

@@ -39,11 +39,14 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
       </div>
       <div class="collapse navbar-collapse" id="cirkuitsNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?=$url;?>"><strong>Home</strong></a></li>
-          <li><a href="<?=$url;?>about"><strong>Cirkuits</strong></a></li>
-          <li><a href="<?=$url;?>videogames"><strong>Video Games</strong></a></li>
-          <li><a href="<?=$url;?>singup"><span class="glyphicon glyphicon-user"></span> <strong>Sing Up</strong></a></li>
-          <li><a href="<?=$url;?>singin"><span class="glyphicon glyphicon-log-in"></span> <strong>Login</strong></a></li>
+          <li><a href="<?=$url?>"><strong>Home</strong></a></li>
+          <li><a href="#" id="lnkHowItWorks"><strong>How Cirkuits works</strong></a></li>
+          <li><a href="#" id="lnkTenseMaster"><strong>Cirkuits Tense Master video game</strong></a></li>
+          <li><a href="#" id="lnkReflex"><strong>reflex-building language video game</strong></a></li>
+          <li><a href="<?=$url?>about"><strong>Cirkuits</strong></a></li>
+          <li><a href="<?=$url?>videogames"><strong>Video Games</strong></a></li>
+          <li><a href="<?=$url?>singup"><span class="glyphicon glyphicon-user"></span> <strong>Sing Up</strong></a></li>
+          <li><a href="<?=$url?>singin"><span class="glyphicon glyphicon-log-in"></span> <strong>Login</strong></a></li>
         </ul>
       </div>
     </div>
@@ -67,7 +70,13 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
       <!-- Content -->
       <div class="content">
         <div id="header" class="text-center" style="paddig:5%;">
-          <h1><strong>How Cirkuits it works</strong></h1>
+          <p id="howItWorks">
+
+          </p>
+          <br>
+          <br>
+          <br>
+          <h1><strong>How Cirkuits works</strong></h1>
           <br>
           <br>
           <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
@@ -113,8 +122,14 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
           </p>
           <br>
           <br>
+          <p id="cTenseMaster">
+
+          </p>
+          <br>
+          <br>
+          <br>
           <!-- about videogame -->
-          <h1><strong>Cirkuits Tense Master video game</strong></h1>
+          <h1 id="cTenseMaster"><strong>Cirkuits Tense Master video game</strong></h1>
 
           <br>
           <br>
@@ -141,7 +156,13 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
             continuously along the way.
           </p>
           <br>
-          <h1><strong>The first-ever reflex-building language video game</strong></h1>
+          <p id="reflexVideoGame">
+
+          </p>
+          <br>
+          <br>
+          <br>
+          <h1 id="reflexVideoGame"><strong>The first-ever reflex-building language video game</strong></h1>
           <br>
           <br>
           <p style="text-align:left; font-size:18pt; padding-left:5%; padding-right:5%;">
@@ -268,6 +289,8 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
           </div>
       </div>
     </div>
+    <br>
+    <br>
     <div class="row row-price">
       <div class="text-center">
         <h1><strong>Pricing</strong></h1>
@@ -326,18 +349,15 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
 
     var insertBanner = function()
     {
-      console.log("change"); //Debug !warning
       var SCREEN_WIDTH = $(window).width();
       var SCREEN_HEIGHT = $(window).height();
       //Getting and setting the banner
       if(SCREEN_WIDTH >= 360 )
       {
-        console.log("standar desktop| width" + SCREEN_WIDTH); //Debug !warning
         var bannerVideo = '<video autoplay = "true" loop ="true" muted id = "video-teaser">';
         bannerVideo    += '<source src =" img/videos/video_promo.mp4" type = "video/mp4" />Your browser does not suppor video tag</video>';
         $('#video').html(bannerVideo);
       }else {
-        console.log("hi def desktop| width" + SCREEN_WIDTH); //Debug !warning
         var banner = '<div id="banner" class="header-banner"></div>';
         $('#video').html(banner);
       }
@@ -348,6 +368,26 @@ $row_pricing = mysqli_fetch_assoc($result_pricing);
       $('.slider-container').width(sliderWidth*3+"px");
       $('.slide').width(sliderWidth+"px");
     }
+
+    function scrollTo(id) {
+      var aTag = $("p[id='"+id+"']");
+      $('html,body').animate({scrollTop:aTag.offset().top}, 'slow');
+    }
+
+    $("#lnkHowItWorks").click(function() {
+      scrollTo('howItWorks');
+      //alert("howItWorks");
+    });
+
+    $("#lnkTenseMaster").click(function() {
+      scrollTo('cTenseMaster');
+      //alert("cTenseMaster")
+    });
+
+    $("#lnkReflex").click(function() {
+      scrollTo('reflexVideoGame');
+      //alert("reflexVideoGame");
+    });
 
   </script>
 </body>
